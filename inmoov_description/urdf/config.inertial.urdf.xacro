@@ -15,7 +15,7 @@
   <xacro:property name="id" value="${ md * md * md}"/>
   
 <!-- 
-Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_meshes/meshes/bicep.stl in 6 msec
+Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_description/meshes/bicep.stl in 6 msec
 All files opened in 2436 msec
 Mesh Bounding Box Size 108.018005 91.844795 231.879486
 Mesh Bounding Box Diag 271.793030 
@@ -49,7 +49,7 @@ axis momenta are :
   </xacro:macro>
 
 <!--
-Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_meshes/meshes/bicepcover.stl in 18 msec
+Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_description/meshes/bicepcover.stl in 18 msec
 All files opened in 2233 msec
 Mesh Bounding Box Size 129.930206 91.769051 208.188858
 Mesh Bounding Box Diag 262.003845 
@@ -83,7 +83,7 @@ axis momenta are :
   </xacro:macro>
 
 <!--
-Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_meshes/meshes/camera.stl in 8 msec
+Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_description/meshes/camera.stl in 8 msec
 All files opened in 2697 msec
 Mesh Bounding Box Size 8.000001 33.499996 19.499996
 Mesh Bounding Box Diag 39.579029 
@@ -117,7 +117,7 @@ axis momenta are :
   </xacro:macro>
 
 <!--
-Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_meshes/meshes/chest.stl in 50 msec
+Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_description/meshes/chest.stl in 50 msec
 All files opened in 1996 msec
 Mesh Bounding Box Size 80.510498 307.491943 275.934937
 Mesh Bounding Box Diag 420.919617 
@@ -151,7 +151,7 @@ axis momenta are :
   </xacro:macro>
 
 <!--
-Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_meshes/meshes/disk.stl in 17 msec
+Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_description/meshes/disk.stl in 17 msec
 All files opened in 2305 msec
 Mesh Bounding Box Size 32.199123 141.520432 141.527847
 Mesh Bounding Box Diag 202.718887 
@@ -185,7 +185,7 @@ axis momenta are :
   </xacro:macro>
 
 <!--
-Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_meshes/meshes/earleftv1.stl in 22 msec
+Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_description/meshes/earleftv1.stl in 22 msec
 All files opened in 2362 msec
 Mesh Bounding Box Size 91.007996 25.182009 91.007942
 Mesh Bounding Box Diag 131.145096 
@@ -219,7 +219,7 @@ axis momenta are :
   </xacro:macro>
 
 <!--
-Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_meshes/meshes/earrightv1.stl in 185 msec
+Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_description/meshes/earrightv1.stl in 185 msec
 All files opened in 2114 msec
 Mesh Bounding Box Size 91.014008 25.182001 91.013977
 Mesh Bounding Box Diag 131.153442 
@@ -253,7 +253,7 @@ axis momenta are :
   </xacro:macro>
 
 <!--
-Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_meshes/meshes/eye.stl in 3 msec
+Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_description/meshes/eye.stl in 3 msec
 All files opened in 1580 msec
 Mesh Bounding Box Size 8.000001 36.000000 35.969540
 Mesh Bounding Box Diag 51.515121 
@@ -287,7 +287,7 @@ axis momenta are :
   </xacro:macro>
 
 <!--
-Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_meshes/meshes/eyesupport.stl in 2 msec
+Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_description/meshes/eyesupport.stl in 2 msec
 All files opened in 1536 msec
 Mesh Bounding Box Size 33.271500 76.999481 75.081680
 Mesh Bounding Box Diag 112.575180 
@@ -321,7 +321,7 @@ axis momenta are :
   </xacro:macro>
   
 <!--
-Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_meshes/meshes/face.stl in 4 msec
+Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_description/meshes/face.stl in 4 msec
 All files opened in 1547 msec
 Mesh Bounding Box Size 58.885715 130.552460 65.225174
 Mesh Bounding Box Diag 157.371521 
@@ -355,7 +355,7 @@ axis momenta are :
   </xacro:macro>
   
 <!--
-Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_meshes/meshes/head.stl in 3 msec
+Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_description/meshes/head.stl in 3 msec
 All files opened in 1403 msec
 Mesh Bounding Box Size 148.349350 130.531616 66.729294
 Mesh Bounding Box Diag 208.563721 
@@ -389,7 +389,7 @@ axis momenta are :
   </xacro:macro>
   
 <!--
-Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_meshes/meshes/head_base.stl in 6 msec
+Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_description/meshes/head_base.stl in 6 msec
 All files opened in 1357 msec
 Mesh Bounding Box Size 69.337830 92.601379 32.000000
 Mesh Bounding Box Diag 120.028122 
@@ -423,7 +423,7 @@ axis momenta are :
   </xacro:macro>
   
 <!--
-Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_meshes/meshes/index3_1.stl in 2 msec
+Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_description/meshes/index3_1.stl in 2 msec
 All files opened in 1522 msec
 Mesh Bounding Box Size 17.238571 17.350281 48.785606
 Mesh Bounding Box Diag 54.573215 
@@ -457,7 +457,7 @@ axis momenta are :
   </xacro:macro>
   
 <!--
-Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_meshes/meshes/index3_2.stl in 7 msec
+Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_description/meshes/index3_2.stl in 7 msec
 All files opened in 1581 msec
 Mesh Bounding Box Size 16.419373 15.360427 34.058228
 Mesh Bounding Box Diag 40.810555 
@@ -491,7 +491,7 @@ axis momenta are :
   </xacro:macro>
   
 <!--
-Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_meshes/meshes/index3_3.stl in 3 msec
+Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_description/meshes/index3_3.stl in 3 msec
 All files opened in 1481 msec
 Mesh Bounding Box Size 15.530320 14.615662 35.068295
 Mesh Bounding Box Diag 41.043804 
@@ -525,7 +525,7 @@ axis momenta are :
   </xacro:macro>
   
 <!--
-Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_meshes/meshes/iris.stl in 7 msec
+Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_description/meshes/iris.stl in 7 msec
 All files opened in 1708 msec
 Mesh Bounding Box Size 4.850000 21.782320 21.764652
 Mesh Bounding Box Diag 31.171974 
@@ -559,7 +559,7 @@ axis momenta are :
   </xacro:macro>
   
 <!--
-Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_meshes/meshes/jaw.stl in 3 msec
+Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_description/meshes/jaw.stl in 3 msec
 All files opened in 1932 msec
 Mesh Bounding Box Size 151.468292 113.023956 114.478699
 Mesh Bounding Box Diag 220.957977 
@@ -593,7 +593,7 @@ axis momenta are :
   </xacro:macro>
   
 <!--
-Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_meshes/meshes/kinectone.stl in 6 msec
+Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_description/meshes/kinectone.stl in 6 msec
 All files opened in 1236 msec
 Mesh Bounding Box Size 250.000031 82.000008 64.499985
 Mesh Bounding Box Diag 270.895294 
@@ -627,7 +627,7 @@ axis momenta are :
   </xacro:macro>
   
 <!--
-Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_meshes/meshes/l_cover_hand.stl in 32 msec
+Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_description/meshes/l_cover_hand.stl in 32 msec
 All files opened in 1460 msec
 Mesh Bounding Box Size 13.736001 84.862000 108.330002
 Mesh Bounding Box Diag 138.295441 
@@ -661,7 +661,7 @@ axis momenta are :
   </xacro:macro>
   
 <!--
-Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_meshes/meshes/l_cover_handpinky.stl in 6 msec
+Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_description/meshes/l_cover_handpinky.stl in 6 msec
 All files opened in 1500 msec
 Mesh Bounding Box Size 5.456001 32.141998 56.658005
 Mesh Bounding Box Diag 65.368233 
@@ -695,7 +695,7 @@ axis momenta are :
   </xacro:macro>
   
 <!--
-Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_meshes/meshes/l_cover_handring.stl in 17 msec
+Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_description/meshes/l_cover_handring.stl in 17 msec
 All files opened in 2914 msec
 Mesh Bounding Box Size 6.642000 33.834000 43.076000
 Mesh Bounding Box Diag 55.176060 
@@ -729,7 +729,7 @@ axis momenta are :
   </xacro:macro>
   
 <!--
-Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_meshes/meshes/l_cover_index.stl in 8 msec
+Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_description/meshes/l_cover_index.stl in 8 msec
 All files opened in 1384 msec
 Mesh Bounding Box Size 8.594393 17.415220 35.119446
 Mesh Bounding Box Diag 40.131397 
@@ -763,7 +763,7 @@ axis momenta are :
   </xacro:macro>
   
 <!--
-Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_meshes/meshes/l_cover_middle.stl in 6 msec
+Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_description/meshes/l_cover_middle.stl in 6 msec
 All files opened in 1439 msec
 Mesh Bounding Box Size 8.813518 18.337889 38.744076
 Mesh Bounding Box Diag 43.761395 
@@ -797,7 +797,7 @@ axis momenta are :
   </xacro:macro>
   
 <!--
-Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_meshes/meshes/l_cover_pinky.stl in 7 msec
+Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_description/meshes/l_cover_pinky.stl in 7 msec
 All files opened in 1484 msec
 Mesh Bounding Box Size 7.799893 16.734661 33.440189
 Mesh Bounding Box Diag 38.198605 
@@ -831,7 +831,7 @@ axis momenta are :
   </xacro:macro>
   
 <!--
-Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_meshes/meshes/l_cover_ring.stl in 5 msec
+Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_description/meshes/l_cover_ring.stl in 5 msec
 All files opened in 1463 msec
 Mesh Bounding Box Size 8.088491 17.430080 36.716965
 Mesh Bounding Box Diag 41.441128 
@@ -865,7 +865,7 @@ axis momenta are :
   </xacro:macro>
   
 <!--
-Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_meshes/meshes/l_cover_thumb.stl in 4 msec
+Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_description/meshes/l_cover_thumb.stl in 4 msec
 All files opened in 1596 msec
 Mesh Bounding Box Size 6.319447 26.349285 49.800488
 Mesh Bounding Box Diag 56.694874 
@@ -899,7 +899,7 @@ axis momenta are :
   </xacro:macro>
   
 <!--
-Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_meshes/meshes/l_eyesupport.stl in 2 msec
+Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_description/meshes/l_eyesupport.stl in 2 msec
 All files opened in 1191 msec
 Mesh Bounding Box Size 14.000004 35.808380 45.097652
 Mesh Bounding Box Diag 59.262455 
@@ -933,7 +933,7 @@ axis momenta are :
   </xacro:macro>
   
 <!--
-Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_meshes/meshes/l_forearm.stl in 16 msec
+Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_description/meshes/l_forearm.stl in 16 msec
 All files opened in 1710 msec
 Mesh Bounding Box Size 108.761078 103.942200 315.046661
 Mesh Bounding Box Diag 349.123688 
@@ -967,7 +967,7 @@ axis momenta are :
   </xacro:macro>
   
 <!--
-Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_meshes/meshes/l_hand.stl in 12 msec
+Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_description/meshes/l_hand.stl in 12 msec
 All files opened in 2042 msec
 Mesh Bounding Box Size 44.331417 93.143219 128.509338
 Mesh Bounding Box Diag 164.789520 
@@ -1001,7 +1001,7 @@ axis momenta are :
   </xacro:macro>
   
 <!--
-Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_meshes/meshes/l_pinky3_1.stl in 12 msec
+Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_description/meshes/l_pinky3_1.stl in 12 msec
 All files opened in 1582 msec
 Mesh Bounding Box Size 17.696007 58.876789 43.411186
 Mesh Bounding Box Diag 75.260590 
@@ -1036,7 +1036,7 @@ axis momenta are :
   </xacro:macro>
   
 <!--
-Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_meshes/meshes/l_ring3_1.stl in 2 msec
+Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_description/meshes/l_ring3_1.stl in 2 msec
 All files opened in 1673 msec
 Mesh Bounding Box Size 17.686001 48.905632 38.091835
 Mesh Bounding Box Diag 64.463509 
@@ -1070,7 +1070,7 @@ axis momenta are :
   </xacro:macro>
   
 <!--
-Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_meshes/meshes/l_shoulder.stl in 5 msec
+Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_description/meshes/l_shoulder.stl in 5 msec
 All files opened in 1242 msec
 Mesh Bounding Box Size 102.575752 111.850540 126.307632
 Mesh Bounding Box Diag 197.448593 
@@ -1104,7 +1104,7 @@ axis momenta are :
   </xacro:macro>
   
 <!--
-Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_meshes/meshes/l_shoulder_base.stl in 7 msec
+Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_description/meshes/l_shoulder_base.stl in 7 msec
 All files opened in 2182 msec
 Mesh Bounding Box Size 102.761749 110.730751 118.874138
 Mesh Bounding Box Diag 192.229904 
@@ -1139,7 +1139,7 @@ axis momenta are :
   </xacro:macro>
   
 <!--
-Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_meshes/meshes/l_thumb5_1.stl in 5 msec
+Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_description/meshes/l_thumb5_1.stl in 5 msec
 All files opened in 1492 msec
 Mesh Bounding Box Size 22.555820 43.031254 35.923035
 Mesh Bounding Box Diag 60.422832 
@@ -1173,7 +1173,7 @@ axis momenta are :
   </xacro:macro>
   
 <!--
-Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_meshes/meshes/middle3_1.stl in 2 msec
+Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_description/meshes/middle3_1.stl in 2 msec
 All files opened in 1320 msec
 Mesh Bounding Box Size 18.482727 18.602509 52.306591
 Mesh Bounding Box Diag 58.511913 
@@ -1207,7 +1207,7 @@ axis momenta are :
   </xacro:macro>
   
 <!--
-Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_meshes/meshes/middle3_2.stl in 4 msec
+Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_description/meshes/middle3_2.stl in 4 msec
 All files opened in 1454 msec
 Mesh Bounding Box Size 17.604366 16.469009 36.516296
 Mesh Bounding Box Diag 43.755936 
@@ -1241,7 +1241,7 @@ axis momenta are :
   </xacro:macro>
   
 <!--
-Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_meshes/meshes/middle3_3.stl in 3 msec
+Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_description/meshes/middle3_3.stl in 3 msec
 All files opened in 1329 msec
 Mesh Bounding Box Size 16.651167 15.670519 37.599258
 Mesh Bounding Box Diag 44.006031 
@@ -1275,7 +1275,7 @@ axis momenta are :
   </xacro:macro>
   
 <!--
-Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_meshes/meshes/mid_stomach.stl in 12 msec
+Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_description/meshes/mid_stomach.stl in 12 msec
 All files opened in 1561 msec
 Mesh Bounding Box Size 171.763184 295.432159 172.122498
 Mesh Bounding Box Diag 382.634155 
@@ -1309,7 +1309,7 @@ axis momenta are :
   </xacro:macro>
   
 <!--
-Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_meshes/meshes/pinky3_2.stl in 4 msec
+Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_description/meshes/pinky3_2.stl in 4 msec
 All files opened in 2164 msec
 Mesh Bounding Box Size 14.813997 14.910004 41.924004
 Mesh Bounding Box Diag 46.897598 
@@ -1343,7 +1343,7 @@ axis momenta are :
   </xacro:macro>
   
 <!--
-Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_meshes/meshes/pinky3_3.stl in 4 msec
+Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_description/meshes/pinky3_3.stl in 4 msec
 All files opened in 2273 msec
 Mesh Bounding Box Size 14.109985 13.200013 29.268002
 Mesh Bounding Box Diag 35.070614 
@@ -1377,7 +1377,7 @@ axis momenta are :
   </xacro:macro>
   
 <!--
-Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_meshes/meshes/pinky3_4.stl in 9 msec
+Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_description/meshes/pinky3_4.stl in 9 msec
 All files opened in 1721 msec
 Mesh Bounding Box Size 13.346009 12.559998 30.136002
 Mesh Bounding Box Diag 35.271065 
@@ -1411,7 +1411,7 @@ axis momenta are :
   </xacro:macro>
   
 <!--
-Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_meshes/meshes/r_cover_hand.stl in 31 msec
+Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_description/meshes/r_cover_hand.stl in 31 msec
 All files opened in 1286 msec
 Mesh Bounding Box Size 13.736000 84.862000 108.330017
 Mesh Bounding Box Diag 138.295441 
@@ -1445,7 +1445,7 @@ axis momenta are :
   </xacro:macro>
   
 <!--
-Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_meshes/meshes/r_cover_handpinky.stl in 8 msec
+Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_description/meshes/r_cover_handpinky.stl in 8 msec
 All files opened in 1616 msec
 Mesh Bounding Box Size 5.456001 32.141998 56.658005
 Mesh Bounding Box Diag 65.368233 
@@ -1479,7 +1479,7 @@ axis momenta are :
   </xacro:macro>
   
 <!--
-Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_meshes/meshes/r_cover_handring.stl in 9 msec
+Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_description/meshes/r_cover_handring.stl in 9 msec
 All files opened in 1687 msec
 Mesh Bounding Box Size 6.641999 33.834000 43.076000
 Mesh Bounding Box Diag 55.176060 
@@ -1513,7 +1513,7 @@ axis momenta are :
   </xacro:macro>
   
 <!--
-Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_meshes/meshes/r_cover_index.stl in 7 msec
+Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_description/meshes/r_cover_index.stl in 7 msec
 All files opened in 1714 msec
 Mesh Bounding Box Size 8.594393 17.415220 35.119446
 Mesh Bounding Box Diag 40.131397 
@@ -1547,7 +1547,7 @@ axis momenta are :
   </xacro:macro>
   
 <!--
-Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_meshes/meshes/r_cover_middle.stl in 22 msec
+Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_description/meshes/r_cover_middle.stl in 22 msec
 All files opened in 1370 msec
 Mesh Bounding Box Size 8.813518 18.337889 38.744076
 Mesh Bounding Box Diag 43.761395 
@@ -1581,7 +1581,7 @@ axis momenta are :
   </xacro:macro>
   
 <!--
-Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_meshes/meshes/r_cover_pinky.stl in 25 msec
+Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_description/meshes/r_cover_pinky.stl in 25 msec
 All files opened in 1370 msec
 Mesh Bounding Box Size 7.799893 16.734661 33.440189
 Mesh Bounding Box Diag 38.198605 
@@ -1615,7 +1615,7 @@ axis momenta are :
   </xacro:macro>
   
 <!--
-Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_meshes/meshes/r_cover_ring.stl in 24 msec
+Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_description/meshes/r_cover_ring.stl in 24 msec
 All files opened in 1487 msec
 Mesh Bounding Box Size 8.088491 17.430080 36.716965
 Mesh Bounding Box Diag 41.441128 
@@ -1649,7 +1649,7 @@ axis momenta are :
   </xacro:macro>
   
 <!--
-Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_meshes/meshes/r_cover_thumb.stl in 21 msec
+Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_description/meshes/r_cover_thumb.stl in 21 msec
 All files opened in 1387 msec
 Mesh Bounding Box Size 6.319447 26.349291 49.800488
 Mesh Bounding Box Diag 56.694878 
@@ -1683,7 +1683,7 @@ axis momenta are :
   </xacro:macro>
   
 <!--
-Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_meshes/meshes/r_eyesupport.stl in 2 msec
+Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_description/meshes/r_eyesupport.stl in 2 msec
 All files opened in 1164 msec
 Mesh Bounding Box Size 14.000004 35.808380 45.097652
 Mesh Bounding Box Diag 59.262455 
@@ -1717,7 +1717,7 @@ axis momenta are :
   </xacro:macro>
   
 <!--
-Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_meshes/meshes/r_forearm.stl in 9 msec
+Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_description/meshes/r_forearm.stl in 9 msec
 All files opened in 1247 msec
 Mesh Bounding Box Size 108.761078 103.942200 315.046661
 Mesh Bounding Box Diag 349.123688 
@@ -1751,7 +1751,7 @@ axis momenta are :
   </xacro:macro>
   
 <!--
-Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_meshes/meshes/r_hand.stl in 14 msec
+Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_description/meshes/r_hand.stl in 14 msec
 All files opened in 1521 msec
 Mesh Bounding Box Size 44.331417 93.143219 128.509323
 Mesh Bounding Box Diag 164.789505 
@@ -1785,7 +1785,7 @@ axis momenta are :
   </xacro:macro>
   
 <!--
-Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_meshes/meshes/ring3_2.stl in 5 msec
+Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_description/meshes/ring3_2.stl in 5 msec
 All files opened in 1503 msec
 Mesh Bounding Box Size 16.450043 16.556625 46.554031
 Mesh Bounding Box Diag 52.076900 
@@ -1819,7 +1819,7 @@ axis momenta are :
   </xacro:macro>
   
 <!--
-Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_meshes/meshes/ring3_3.stl in 2 msec
+Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_description/meshes/ring3_3.stl in 2 msec
 All files opened in 1562 msec
 Mesh Bounding Box Size 15.668304 14.657790 32.500313
 Mesh Bounding Box Diag 38.943768 
@@ -1853,7 +1853,7 @@ axis momenta are :
   </xacro:macro>
   
 <!--
-Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_meshes/meshes/ring3_4.stl in 2 msec
+Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_description/meshes/ring3_4.stl in 2 msec
 All files opened in 1837 msec
 Mesh Bounding Box Size 14.819916 13.947111 33.464180
 Mesh Bounding Box Diag 39.166351 
@@ -1887,7 +1887,7 @@ axis momenta are :
   </xacro:macro>
   
 <!--
-Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_meshes/meshes/r_pinky3_1.stl in 9 msec
+Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_description/meshes/r_pinky3_1.stl in 9 msec
 All files opened in 2265 msec
 Mesh Bounding Box Size 17.696005 58.876789 43.411186
 Mesh Bounding Box Diag 75.260590 
@@ -1921,7 +1921,7 @@ axis momenta are :
   </xacro:macro>
   
 <!--
-Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_meshes/meshes/r_ring3_1.stl in 6 msec
+Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_description/meshes/r_ring3_1.stl in 6 msec
 All files opened in 1388 msec
 Mesh Bounding Box Size 17.686001 48.905632 38.091835
 Mesh Bounding Box Diag 64.463509 
@@ -1955,7 +1955,7 @@ axis momenta are :
   </xacro:macro>
   
 <!--
-Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_meshes/meshes/r_shoulder.stl in 5 msec
+Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_description/meshes/r_shoulder.stl in 5 msec
 All files opened in 1679 msec
 Mesh Bounding Box Size 102.575745 111.850540 126.307617
 Mesh Bounding Box Diag 197.448578 
@@ -1989,7 +1989,7 @@ axis momenta are :
   </xacro:macro>
   
 <!--
-Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_meshes/meshes/r_shoulder_base.stl in 5 msec
+Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_description/meshes/r_shoulder_base.stl in 5 msec
 All files opened in 1413 msec
 Mesh Bounding Box Size 102.761749 110.730751 118.874130
 Mesh Bounding Box Diag 192.229904 
@@ -2023,7 +2023,7 @@ axis momenta are :
   </xacro:macro>
   
 <!--
-Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_meshes/meshes/r_thumb5_1.stl in 11 msec
+Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_description/meshes/r_thumb5_1.stl in 11 msec
 All files opened in 2727 msec
 Mesh Bounding Box Size 22.555820 43.031254 35.923031
 Mesh Bounding Box Diag 60.422825 
@@ -2057,7 +2057,7 @@ axis momenta are :
   </xacro:macro>
   
 <!--
-Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_meshes/meshes/skull.stl in 6 msec
+Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_description/meshes/skull.stl in 6 msec
 All files opened in 1454 msec
 Mesh Bounding Box Size 220.049591 145.440552 175.706451
 Mesh Bounding Box Diag 316.934601 
@@ -2091,7 +2091,7 @@ axis momenta are :
   </xacro:macro>
   
 <!--
-Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_meshes/meshes/thumb5_2.stl in 6 msec
+Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_description/meshes/thumb5_2.stl in 6 msec
 All files opened in 1613 msec
 Mesh Bounding Box Size 22.805998 22.800003 47.880001
 Mesh Bounding Box Diag 57.727360 
@@ -2125,7 +2125,7 @@ axis momenta are :
   </xacro:macro>
   
 <!--
-Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_meshes/meshes/thumb5_3.stl in 10 msec
+Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_description/meshes/thumb5_3.stl in 10 msec
 All files opened in 1487 msec
 Mesh Bounding Box Size 21.108002 19.858002 39.591999
 Mesh Bounding Box Diag 49.065407 
@@ -2159,7 +2159,7 @@ axis momenta are :
   </xacro:macro>
   
 <!--
-Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_meshes/meshes/top_stomach.stl in 9 msec
+Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_description/meshes/top_stomach.stl in 9 msec
 All files opened in 1594 msec
 Mesh Bounding Box Size 173.016800 236.902161 152.281570
 Mesh Bounding Box Diag 330.525543 
@@ -2193,7 +2193,7 @@ axis momenta are :
   </xacro:macro>
   
 <!--
-Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_meshes/meshes/torso.stl in 37 msec
+Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_description/meshes/torso.stl in 37 msec
 All files opened in 1623 msec
 Mesh Bounding Box Size 102.926048 310.999420 518.973633
 Mesh Bounding Box Diag 613.716553 
@@ -2227,7 +2227,7 @@ axis momenta are :
   </xacro:macro>
   
 <!--
-Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_meshes/meshes/virtual.stl in 8 msec
+Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_description/meshes/virtual.stl in 8 msec
 All files opened in 2185 msec
 Mesh Bounding Box Size 1.000000 1.000000 1.000000
 Mesh Bounding Box Diag 1.732051 

@@ -1,24 +1,12 @@
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.8)
 project(inmoov_description)
-
 find_package(ament_cmake REQUIRED)
-find_package(urdf REQUIRED)
-find_package(xacro REQUIRED)
-find_package(gazebo_ros REQUIRED)
-find_package(rviz2 REQUIRED)
-find_package(robot_state_publisher REQUIRED)
 
-install(DIRECTORY urdf robots
-  DESTINATION share/${PROJECT_NAME}
-)
-
-install(DIRECTORY launch
-  DESTINATION share/${PROJECT_NAME}/launch
-)
-
-install(PROGRAMS
-  launch_rviz.sh
-  DESTINATION share/${PROJECT_NAME}
-)
+# Install only dirs that exist (avoids "file INSTALL cannot find ..." errors)
+foreach(dir IN ITEMS robots urdf xacro meshes materials textures config launch worlds)
+  if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/${dir})
+    install(DIRECTORY ${dir}/ DESTINATION share/${PROJECT_NAME}/${dir})
+  endif()
+endforeach()
 
 ament_package()

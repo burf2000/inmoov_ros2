@@ -7,7 +7,7 @@
     <link name="${side}_hand_link">
       <visual>
         <geometry>
-          <mesh filename="package://inmoov_meshes/meshes/${side}_hand.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="package://inmoov_description/meshes/${side}_hand.stl" scale="0.001 0.001 0.001"/>
         </geometry>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <xacro:frame_color/>
@@ -23,7 +23,7 @@
     <link name="${side}_thumb1_link">
       <visual>
         <geometry>
-          <mesh filename="package://inmoov_meshes/meshes/${side}_thumb5_1.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="package://inmoov_description/meshes/${side}_thumb5_1.stl" scale="0.001 0.001 0.001"/>
         </geometry>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <xacro:frame_color/>
@@ -39,7 +39,7 @@
     <link name="${side}_thumb2_link">
       <visual>
         <geometry>
-          <mesh filename="package://inmoov_meshes/meshes/thumb5_2.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="package://inmoov_description/meshes/thumb5_2.stl" scale="0.001 0.001 0.001"/>
         </geometry>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <xacro:frame_color/>
@@ -50,7 +50,7 @@
     <link name="${side}_thumb3_link">
       <visual>
         <geometry>
-          <mesh filename="package://inmoov_meshes/meshes/thumb5_3.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="package://inmoov_description/meshes/thumb5_3.stl" scale="0.001 0.001 0.001"/>
         </geometry>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <xacro:frame_color/>
@@ -61,7 +61,7 @@
     <link name="${side}_index1_link">
       <visual>
         <geometry>
-          <mesh filename="package://inmoov_meshes/meshes/index3_1.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="package://inmoov_description/meshes/index3_1.stl" scale="0.001 0.001 0.001"/>
         </geometry>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <xacro:frame_color/>
@@ -72,7 +72,7 @@
     <link name="${side}_index2_link">
       <visual>
         <geometry>
-          <mesh filename="package://inmoov_meshes/meshes/index3_2.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="package://inmoov_description/meshes/index3_2.stl" scale="0.001 0.001 0.001"/>
         </geometry>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <xacro:frame_color/>
@@ -83,7 +83,7 @@
     <link name="${side}_index3_link">
       <visual>
         <geometry>
-          <mesh filename="package://inmoov_meshes/meshes/index3_3.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="package://inmoov_description/meshes/index3_3.stl" scale="0.001 0.001 0.001"/>
         </geometry>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <xacro:frame_color/>
@@ -94,7 +94,7 @@
     <link name="${side}_middle1_link">
       <visual>
         <geometry>
-          <mesh filename="package://inmoov_meshes/meshes/middle3_1.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="package://inmoov_description/meshes/middle3_1.stl" scale="0.001 0.001 0.001"/>
         </geometry>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <xacro:frame_color/>
@@ -105,7 +105,7 @@
     <link name="${side}_middle2_link">
       <visual>
         <geometry>
-          <mesh filename="package://inmoov_meshes/meshes/middle3_2.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="package://inmoov_description/meshes/middle3_2.stl" scale="0.001 0.001 0.001"/>
         </geometry>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <xacro:frame_color/>
@@ -116,7 +116,7 @@
     <link name="${side}_middle3_link">
       <visual>
         <geometry>
-          <mesh filename="package://inmoov_meshes/meshes/middle3_3.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="package://inmoov_description/meshes/middle3_3.stl" scale="0.001 0.001 0.001"/>
         </geometry>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <xacro:frame_color/>
@@ -127,7 +127,7 @@
     <link name="${side}_ring1_link">
       <visual>
         <geometry>
-          <mesh filename="package://inmoov_meshes/meshes/${side}_ring3_1.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="package://inmoov_description/meshes/${side}_ring3_1.stl" scale="0.001 0.001 0.001"/>
         </geometry>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <xacro:frame_color/>
@@ -143,7 +143,7 @@
     <link name="${side}_ring2_link">
       <visual>
         <geometry>
-          <mesh filename="package://inmoov_meshes/meshes/ring3_2.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="package://inmoov_description/meshes/ring3_2.stl" scale="0.001 0.001 0.001"/>
         </geometry>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <xacro:frame_color/>
@@ -154,7 +154,7 @@
     <link name="${side}_ring3_link">
       <visual>
         <geometry>
-          <mesh filename="package://inmoov_meshes/meshes/ring3_3.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="package://inmoov_description/meshes/ring3_3.stl" scale="0.001 0.001 0.001"/>
         </geometry>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <xacro:frame_color/>
@@ -165,7 +165,7 @@
     <link name="${side}_ring4_link">
       <visual>
         <geometry>
-          <mesh filename="package://inmoov_meshes/meshes/ring3_4.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="package://inmoov_description/meshes/ring3_4.stl" scale="0.001 0.001 0.001"/>
         </geometry>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <xacro:frame_color/>
@@ -176,7 +176,7 @@
     <link name="${side}_pinky1_link">
       <visual>
         <geometry>
-          <mesh filename="package://inmoov_meshes/meshes/${side}_pinky3_1.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="package://inmoov_description/meshes/${side}_pinky3_1.stl" scale="0.001 0.001 0.001"/>
         </geometry>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <xacro:frame_color/>
@@ -192,7 +192,7 @@
     <link name="${side}_pinky2_link">
       <visual>
         <geometry>
-          <mesh filename="package://inmoov_meshes/meshes/pinky3_2.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="package://inmoov_description/meshes/pinky3_2.stl" scale="0.001 0.001 0.001"/>
         </geometry>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <xacro:frame_color/>
@@ -203,7 +203,7 @@
     <link name="${side}_pinky3_link">
       <visual>
         <geometry>
-          <mesh filename="package://inmoov_meshes/meshes/pinky3_3.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="package://inmoov_description/meshes/pinky3_3.stl" scale="0.001 0.001 0.001"/>
         </geometry>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <xacro:frame_color/>
@@ -214,7 +214,7 @@
     <link name="${side}_pinky4_link">
       <visual>
         <geometry>
-          <mesh filename="package://inmoov_meshes/meshes/pinky3_4.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="package://inmoov_description/meshes/pinky3_4.stl" scale="0.001 0.001 0.001"/>
         </geometry>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <xacro:frame_color/>
@@ -458,7 +458,7 @@
     <link name="${side}_handcover_link">
       <visual>
         <geometry>
-          <mesh filename="package://inmoov_meshes/meshes/${side}_cover_hand.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="package://inmoov_description/meshes/${side}_cover_hand.stl" scale="0.001 0.001 0.001"/>
         </geometry>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <xacro:cover_color/>
@@ -474,7 +474,7 @@
     <link name="${side}_cover_handring_link">
       <visual>
         <geometry>
-          <mesh filename="package://inmoov_meshes/meshes/${side}_cover_handring.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="package://inmoov_description/meshes/${side}_cover_handring.stl" scale="0.001 0.001 0.001"/>
         </geometry>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <xacro:cover_color/>
@@ -490,7 +490,7 @@
     <link name="${side}_cover_handpinky_link">
       <visual>
         <geometry>
-          <mesh filename="package://inmoov_meshes/meshes/${side}_cover_handpinky.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="package://inmoov_description/meshes/${side}_cover_handpinky.stl" scale="0.001 0.001 0.001"/>
         </geometry>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <xacro:cover_color/>
@@ -506,7 +506,7 @@
     <link name="${side}_cover_thumb_link">
       <visual>
         <geometry>
-          <mesh filename="package://inmoov_meshes/meshes/${side}_cover_thumb.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="package://inmoov_description/meshes/${side}_cover_thumb.stl" scale="0.001 0.001 0.001"/>
         </geometry>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <xacro:cover_color/>
@@ -522,7 +522,7 @@
     <link name="${side}_cover_index_link">
       <visual>
         <geometry>
-          <mesh filename="package://inmoov_meshes/meshes/${side}_cover_index.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="package://inmoov_description/meshes/${side}_cover_index.stl" scale="0.001 0.001 0.001"/>
         </geometry>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <xacro:cover_color/>
@@ -538,7 +538,7 @@
     <link name="${side}_cover_middle_link">
       <visual>
         <geometry>
-          <mesh filename="package://inmoov_meshes/meshes/${side}_cover_middle.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="package://inmoov_description/meshes/${side}_cover_middle.stl" scale="0.001 0.001 0.001"/>
         </geometry>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <xacro:cover_color/>
@@ -554,7 +554,7 @@
     <link name="${side}_cover_ring_link">
       <visual>
         <geometry>
-          <mesh filename="package://inmoov_meshes/meshes/${side}_cover_ring.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="package://inmoov_description/meshes/${side}_cover_ring.stl" scale="0.001 0.001 0.001"/>
         </geometry>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <xacro:cover_color/>
@@ -570,7 +570,7 @@
     <link name="${side}_cover_pinky_link">
       <visual>
         <geometry>
-          <mesh filename="package://inmoov_meshes/meshes/${side}_cover_pinky.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="package://inmoov_description/meshes/${side}_cover_pinky.stl" scale="0.001 0.001 0.001"/>
         </geometry>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <xacro:cover_color/>

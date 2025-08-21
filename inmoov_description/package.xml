@@ -1,24 +1,18 @@
+<?xml version="1.0"?>
 <package format="3">
   <name>inmoov_description</name>
   <version>0.1.0</version>
-  <description>
-    URDF and mesh files for InMoov robot.
-  </description>
-  <maintainer email="supertick@gmail.com">Greg Perry</maintainer>
-
-  <license>BSD</license>
-
-  <url type="website">https://discord.gg/8NYKAUTxmZ</url>
-  <url type="bugtracker">https://github.com/MyRobotLab/myrobotlab/issues</url>
-
-  <author>Greg Perry</author>
+  <description>InMoov robot description (ROS 2 Humble)</description>
+  <maintainer email="you@example.com">You</maintainer>
+  <license>Apache-2.0</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
-  <depend>urdf</depend>
-  <depend>xacro</depend>
-  <depend>gazebo_ros</depend>
-  <depend>rviz2</depend>
-  <depend>robot_state_publisher</depend>
+
+  <exec_depend>xacro</exec_depend>
+  <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>joint_state_publisher</exec_depend>
+  <exec_depend>joint_state_publisher_gui</exec_depend>
+  <exec_depend>rviz2</exec_depend>
 
   <export>
     <build_type>ament_cmake</build_type>

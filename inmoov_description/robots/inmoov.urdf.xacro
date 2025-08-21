@@ -52,7 +52,7 @@
   <link name="head_tilt_link">
     <visual>
       <geometry>
-        <mesh filename="package://inmoov_meshes/meshes/virtual.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://inmoov_description/meshes/virtual.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <origin rpy="0 0 3.1415" xyz="0 0 0"/>
       <xacro:frame_color/>
@@ -136,4 +136,3 @@
   </joint>
 
 </robot>
-

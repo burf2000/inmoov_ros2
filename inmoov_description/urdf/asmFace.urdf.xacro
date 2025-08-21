@@ -9,7 +9,7 @@
   <link name="face_link">
     <visual>
       <geometry>
-        <mesh filename="package://inmoov_meshes/meshes/face.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://inmoov_description/meshes/face.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <xacro:cover_color/>
@@ -28,7 +28,7 @@
   <link name="eyesupport_link">
     <visual>
       <geometry>
-        <mesh filename="package://inmoov_meshes/meshes/eyesupport.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://inmoov_description/meshes/eyesupport.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <xacro:frame_color/>
