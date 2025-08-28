@@ -2,148 +2,81 @@
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
 
   <!-- ============================================================
-       Command limits for 180° servos
-       Default: centered ±90°  (−π/2 .. +π/2)
+       Convenience: 180° limits (centered ±90°) and default force
        ============================================================ -->
-  <xacro:property name="servo_min" value="-1.5707963267948966"/>  <!-- -π/2 -->
-  <xacro:property name="servo_max" value=" 1.5707963267948966"/>  <!-- +π/2 -->
+  <xacro:property name="SERVO_MIN" value="-1.5707963267948966"/> <!-- -π/2 -->
+  <xacro:property name="SERVO_MAX" value=" 1.5707963267948966"/> <!-- +π/2 -->
+  <xacro:property name="FORCE"     value="200.0"/>                 <!-- Nm-ish; tune -->
+
+  <!-- Small helper to declare one position-only joint with real torque -->
+  <xacro:macro name="pos_only_joint" params="jname cmd_min:=${SERVO_MIN} cmd_max:=${SERVO_MAX} kp:=60.0 kd:=1.0 ki:=0.0 fmax:=${FORCE}">
+    <joint name="${jname}">
+      <command_interface name="position">
+        <param name="position_proportional_gain">${kp}</param>
+        <param name="position_d_gain">${kd}</param>
+        <param name="position_i_gain">${ki}</param>
+        <param name="position_max_force">${fmax}</param>
+        <!-- note the renamed params here -->
+        <param name="min">${cmd_min}</param>
+        <param name="max">${cmd_max}</param>
+      </command_interface>
+      <state_interface name="position"/>
+    </joint>
+  </xacro:macro>
+
+
 
   <!-- ============================================================
-       ros2_control (GZ Sim / Jazzy)
-       - Position-only command + state interface
-       - Gains come from controllers.yaml, not here
+       ros2_control for Gazebo Sim (position-only on all joints)
        ============================================================ -->
   <ros2_control name="inmoov_system" type="system">
     <hardware>
       <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+      <!-- Keep hardware section minimal; per-joint params above actually take effect -->
     </hardware>
 
     <!-- torso / neck / head -->
-    <joint name="waist_pan_joint">
-      <command_interface name="position"><param name="min">${servo_min}</param><param name="max">${servo_max}</param></command_interface>
-      <state_interface name="position"/>
-    </joint>
-    <joint name="waist_roll_joint">
-      <command_interface name="position"><param name="min">${servo_min}</param><param name="max">${servo_max}</param></command_interface>
-      <state_interface name="position"/>
-    </joint>
-    <joint name="head_roll_joint">
-      <command_interface name="position"><param name="min">${servo_min}</param><param name="max">${servo_max}</param></command_interface>
-      <state_interface name="position"/>
-    </joint>
-    <joint name="head_tilt_joint">
-      <command_interface name="position"><param name="min">${servo_min}</param><param name="max">${servo_max}</param></command_interface>
-      <state_interface name="position"/>
-    </joint>
-    <joint name="head_pan_joint">
-      <command_interface name="position"><param name="min">${servo_min}</param><param name="max">${servo_max}</param></command_interface>
-      <state_interface name="position"/>
-    </joint>
+    <xacro:pos_only_joint jname="waist_pan_joint"/>
+    <xacro:pos_only_joint jname="waist_roll_joint"/>
+    <xacro:pos_only_joint jname="head_roll_joint"/>
+    <xacro:pos_only_joint jname="head_tilt_joint"/>
+    <xacro:pos_only_joint jname="head_pan_joint"/>
 
     <!-- jaw / eyes -->
-    <joint name="jaw_joint">
-      <command_interface name="position"><param name="min">${servo_min}</param><param name="max">${servo_max}</param></command_interface>
-      <state_interface name="position"/>
-    </joint>
-    <joint name="eyes_tilt_joint">
-      <command_interface name="position"><param name="min">${servo_min}</param><param name="max">${servo_max}</param></command_interface>
-      <state_interface name="position"/>
-    </joint>
-    <joint name="eyes_pan_joint">
-      <command_interface name="position"><param name="min">${servo_min}</param><param name="max">${servo_max}</param></command_interface>
-      <state_interface name="position"/>
-    </joint>
+    <xacro:pos_only_joint jname="jaw_joint"/>
+    <xacro:pos_only_joint jname="eyes_tilt_joint"/>
+    <xacro:pos_only_joint jname="eyes_pan_joint"/>
 
     <!-- right arm -->
-    <joint name="r_shoulder_lift_joint">
-      <command_interface name="position"><param name="min">${servo_min}</param><param name="max">${servo_max}</param></command_interface>
-      <state_interface name="position"/>
-    </joint>
-    <joint name="r_upper_arm_roll_joint">
-      <command_interface name="position"><param name="min">${servo_min}</param><param name="max">${servo_max}</param></command_interface>
-      <state_interface name="position"/>
-    </joint>
-    <joint name="r_elbow_flex_joint">
-      <command_interface name="position"><param name="min">${servo_min}</param><param name="max">${servo_max}</param></command_interface>
-      <state_interface name="position"/>
-    </joint>
-    <joint name="r_shoulder_out_joint">
-      <command_interface name="position"><param name="min">${servo_min}</param><param name="max">${servo_max}</param></command_interface>
-      <state_interface name="position"/>
-    </joint>
-    <joint name="r_wrist_roll_joint">
-      <command_interface name="position"><param name="min">${servo_min}</param><param name="max">${servo_max}</param></command_interface>
-      <state_interface name="position"/>
-    </joint>
+    <xacro:pos_only_joint jname="r_shoulder_lift_joint"/>
+    <xacro:pos_only_joint jname="r_upper_arm_roll_joint"/>
+    <xacro:pos_only_joint jname="r_elbow_flex_joint"/>
+    <xacro:pos_only_joint jname="r_shoulder_out_joint"/>
+    <xacro:pos_only_joint jname="r_wrist_roll_joint" cmd_min="-3.141592653589793" cmd_max="3.141592653589793"/>
 
     <!-- left arm -->
-    <joint name="l_shoulder_lift_joint">
-      <command_interface name="position"><param name="min">${servo_min}</param><param name="max">${servo_max}</param></command_interface>
-      <state_interface name="position"/>
-    </joint>
-    <joint name="l_upper_arm_roll_joint">
-      <command_interface name="position"><param name="min">${servo_min}</param><param name="max">${servo_max}</param></command_interface>
-      <state_interface name="position"/>
-    </joint>
-    <joint name="l_elbow_flex_joint">
-      <command_interface name="position"><param name="min">${servo_min}</param><param name="max">${servo_max}</param></command_interface>
-      <state_interface name="position"/>
-    </joint>
-    <joint name="l_shoulder_out_joint">
-      <command_interface name="position"><param name="min">${servo_min}</param><param name="max">${servo_max}</param></command_interface>
-      <state_interface name="position"/>
-    </joint>
-    <joint name="l_wrist_roll_joint">
-      <command_interface name="position"><param name="min">${servo_min}</param><param name="max">${servo_max}</param></command_interface>
-      <state_interface name="position"/>
-    </joint>
+    <xacro:pos_only_joint jname="l_shoulder_lift_joint"/>
+    <xacro:pos_only_joint jname="l_upper_arm_roll_joint"/>
+    <xacro:pos_only_joint jname="l_elbow_flex_joint"/>
+    <xacro:pos_only_joint jname="l_shoulder_out_joint"/>
+    <xacro:pos_only_joint jname="l_wrist_roll_joint" cmd_min="-3.141592653589793" cmd_max="3.141592653589793"/>
 
     <!-- left hand -->
-    <joint name="l_thumb_joint">
-      <command_interface name="position"><param name="min">${servo_min}</param><param name="max">${servo_max}</param></command_interface>
-      <state_interface name="position"/>
-    </joint>
-    <joint name="l_index_joint">
-      <command_interface name="position"><param name="min">${servo_min}</param><param name="max">${servo_max}</param></command_interface>
-      <state_interface name="position"/>
-    </joint>
-    <joint name="l_middle_joint">
-      <command_interface name="position"><param name="min">${servo_min}</param><param name="max">${servo_max}</param></command_interface>
-      <state_interface name="position"/>
-    </joint>
-    <joint name="l_ring_joint">
-      <command_interface name="position"><param name="min">${servo_min}</param><param name="max">${servo_max}</param></command_interface>
-      <state_interface name="position"/>
-    </joint>
-    <joint name="l_pinky_joint">
-      <command_interface name="position"><param name="min">${servo_min}</param><param name="max">${servo_max}</param></command_interface>
-      <state_interface name="position"/>
-    </joint>
+    <xacro:pos_only_joint jname="l_thumb_joint"/>
+    <xacro:pos_only_joint jname="l_index_joint"/>
+    <xacro:pos_only_joint jname="l_middle_joint"/>
+    <xacro:pos_only_joint jname="l_ring_joint"/>
+    <xacro:pos_only_joint jname="l_pinky_joint"/>
 
     <!-- right hand -->
-    <joint name="r_thumb_joint">
-      <command_interface name="position"><param name="min">${servo_min}</param><param name="max">${servo_max}</param></command_interface>
-      <state_interface name="position"/>
-    </joint>
-    <joint name="r_index_joint">
-      <command_interface name="position"><param name="min">${servo_min}</param><param name="max">${servo_max}</param></command_interface>
-      <state_interface name="position"/>
-    </joint>
-    <joint name="r_middle_joint">
-      <command_interface name="position"><param name="min">${servo_min}</param><param name="max">${servo_max}</param></command_interface>
-      <state_interface name="position"/>
-    </joint>
-    <joint name="r_ring_joint">
-      <command_interface name="position"><param name="min">${servo_min}</param><param name="max">${servo_max}</param></command_interface>
-      <state_interface name="position"/>
-    </joint>
-    <joint name="r_pinky_joint">
-      <command_interface name="position"><param name="min">${servo_min}</param><param name="max">${servo_max}</param></command_interface>
-      <state_interface name="position"/>
-    </joint>
+    <xacro:pos_only_joint jname="r_thumb_joint"/>
+    <xacro:pos_only_joint jname="r_index_joint"/>
+    <xacro:pos_only_joint jname="r_middle_joint"/>
+    <xacro:pos_only_joint jname="r_ring_joint"/>
+    <xacro:pos_only_joint jname="r_pinky_joint"/>
   </ros2_control>
 
-  <!-- Gazebo system plugin (Jazzy / GZ) -->
+  <!-- Gazebo Sim system plugin loader -->
   <gazebo>
     <plugin filename="gz_ros2_control-system"
             name="gz_ros2_control::GazeboSimROS2ControlPlugin">
@@ -151,118 +84,5 @@
     </plugin>
   </gazebo>
 
-  <!-- color definitions for gazebo links -->
-  <xacro:macro name="g_frame_color"><material>Gazebo/Grey</material></xacro:macro>
-  <xacro:macro name="g_cover_color"><material>Gazebo/White</material></xacro:macro>
-  <xacro:macro name="g_eyeball_color"><material>Gazebo/White</material></xacro:macro>
-  <xacro:macro name="g_iris_color"><material>Gazebo/SkyBlue</material></xacro:macro>
-  <xacro:macro name="g_base_color"><material>Gazebo/DarkGrey</material></xacro:macro>
-  <xacro:macro name="g_kinect_color"><material>Gazebo/DarkGrey</material></xacro:macro>
-  <xacro:macro name="g_camera_color"><material>Gazebo/DarkGrey</material></xacro:macro>
-  <xacro:macro name="g_accent_color"><material>Gazebo/SkyBlue</material></xacro:macro>
-  <xacro:macro name="g_servo_color"><material>Gazebo/DarkGrey</material></xacro:macro>
-  <xacro:macro name="g_horn_color"><material>Gazebo/Grey</material></xacro:macro>
-
-  <!-- colors for torso links -->
-  <gazebo reference="mid_stomach_link"><xacro:g_frame_color/></gazebo>
-  <gazebo reference="disk_link"><xacro:g_cover_color/></gazebo>
-  <gazebo reference="top_stomach_link"><xacro:g_frame_color/></gazebo>
-  <gazebo reference="torso_link"><xacro:g_frame_color/></gazebo>
-  <gazebo reference="kinect2_link"><xacro:g_kinect_color/></gazebo>
-  <gazebo reference="kinect2_ir_optical_frame_link"><xacro:g_kinect_color/></gazebo>
-  <gazebo reference="kinect2_rgb_optical_frame_link"><xacro:g_kinect_color/></gazebo>
-  <gazebo reference="chestplate_link"><xacro:g_cover_color/></gazebo>
-
-  <!-- colors for head links -->
-  <gazebo reference="head_base_link"><xacro:g_frame_color/></gazebo>
-  <gazebo reference="head_link"><xacro:g_frame_color/></gazebo>
-  <gazebo reference="jaw_link"><xacro:g_cover_color/></gazebo>
-  <gazebo reference="skull_link"><xacro:g_cover_color/></gazebo>
-  <gazebo reference="left_ear_link"><xacro:g_frame_color/></gazebo>
-  <gazebo reference="right_ear_link"><xacro:g_frame_color/></gazebo>
-  <gazebo reference="face_link"><xacro:g_cover_color/></gazebo>
-
-  <!-- colors for eye links -->
-  <gazebo reference="l_eyesupport_link"><xacro:g_frame_color/></gazebo>
-  <gazebo reference="r_eyesupport_link"><xacro:g_frame_color/></gazebo>
-  <gazebo reference="l_camera_link"><xacro:g_camera_color/></gazebo>
-  <gazebo reference="r_camera_link"><xacro:g_camera_color/></gazebo>
-  <gazebo reference="l_eye_link"><xacro:g_eyeball_color/></gazebo>
-  <gazebo reference="r_eye_link"><xacro:g_eyeball_color/></gazebo>
-  <gazebo reference="l_iris_link"><xacro:g_iris_color/></gazebo>
-  <gazebo reference="r_iris_link"><xacro:g_iris_color/></gazebo>
-
-  <!-- colors for arm links -->
-  <gazebo reference="l_shoulder_base_link"><xacro:g_frame_color/></gazebo>
-  <gazebo reference="r_shoulder_base_link"><xacro:g_frame_color/></gazebo>
-  <gazebo reference="l_shoulder_link"><xacro:g_frame_color/></gazebo>
-  <gazebo reference="r_shoulder_link"><xacro:g_frame_color/></gazebo>
-  <gazebo reference="l_bicep_link"><xacro:g_frame_color/></gazebo>
-  <gazebo reference="r_bicep_link"><xacro:g_frame_color/></gazebo>
-  <gazebo reference="l_bicepcover_link"><xacro:g_cover_color/></gazebo>
-  <gazebo reference="r_bicepcover_link"><xacro:g_cover_color/></gazebo>
-  <gazebo reference="l_forearm_link"><xacro:g_cover_color/></gazebo>
-  <gazebo reference="r_corearm_link"><xacro:g_cover_color/></gazebo>
-
-  <!-- colors for hand links -->
-  <gazebo reference="l_hand_link"><xacro:g_frame_color/></gazebo>
-  <gazebo reference="r_hand_link"><xacro:g_frame_color/></gazebo>
-
-  <gazebo reference="l_thumb1_link"><xacro:g_frame_color/></gazebo>
-  <gazebo reference="r_thumb1_link"><xacro:g_frame_color/></gazebo>
-  <gazebo reference="l_thumb2_link"><xacro:g_frame_color/></gazebo>
-  <gazebo reference="r_thumb2_link"><xacro:g_frame_color/></gazebo>
-  <gazebo reference="l_thumb3_link"><xacro:g_frame_color/></gazebo>
-  <gazebo reference="r_thumb3_link"><xacro:g_frame_color/></gazebo>
-
-  <gazebo reference="l_index1_link"><xacro:g_frame_color/></gazebo>
-  <gazebo reference="r_index1_link"><xacro:g_frame_color/></gazebo>
-  <gazebo reference="l_index2_link"><xacro:g_frame_color/></gazebo>
-  <gazebo reference="r_index2_link"><xacro:g_frame_color/></gazebo>
-  <gazebo reference="l_index3_link"><xacro:g_frame_color/></gazebo>
-  <gazebo reference="r_index3_link"><xacro:g_frame_color/></gazebo>
-
-  <gazebo reference="l_middle1_link"><xacro:g_frame_color/></gazebo>
-  <gazebo reference="r_middle1_link"><xacro:g_frame_color/></gazebo>
-  <gazebo reference="l_middle2_link"><xacro:g_frame_color/></gazebo>
-  <gazebo reference="r_middle2_link"><xacro:g_frame_color/></gazebo>
-  <gazebo reference="l_middle3_link"><xacro:g_frame_color/></gazebo>
-  <gazebo reference="r_middle3_link"><xacro:g_frame_color/></gazebo>
-
-  <gazebo reference="l_ring1_link"><xacro:g_frame_color/></gazebo>
-  <gazebo reference="r_ring1_link"><xacro:g_frame_color/></gazebo>
-  <gazebo reference="l_ring2_link"><xacro:g_frame_color/></gazebo>
-  <gazebo reference="r_ring2_link"><xacro:g_frame_color/></gazebo>
-  <gazebo reference="l_ring3_link"><xacro:g_frame_color/></gazebo>
-  <gazebo reference="r_ring3_link"><xacro:g_frame_color/></gazebo>
-  <gazebo reference="l_ring4_link"><xacro:g_frame_color/></gazebo>
-  <gazebo reference="r_ring4_link"><xacro:g_frame_color/></gazebo>
-
-  <gazebo reference="l_pinky1_link"><xacro:g_frame_color/></gazebo>
-  <gazebo reference="r_pinky1_link"><xacro:g_frame_color/></gazebo>
-  <gazebo reference="l_pinky2_link"><xacro:g_frame_color/></gazebo>
-  <gazebo reference="r_pinky2_link"><xacro:g_frame_color/></gazebo>
-  <gazebo reference="l_pinky3_link"><xacro:g_frame_color/></gazebo>
-  <gazebo reference="r_pinky3_link"><xacro:g_frame_color/></gazebo>
-  <gazebo reference="l_pinky4_link"><xacro:g_frame_color/></gazebo>
-  <gazebo reference="r_pinky4_link"><xacro:g_frame_color/></gazebo>
-
-  <gazebo reference="l_handcover_link"><xacro:g_cover_color/></gazebo>
-  <gazebo reference="r_handcover_link"><xacro:g_cover_color/></gazebo>
-
-  <gazebo reference="l_cover_handring_link"><xacro:g_cover_color/></gazebo>
-  <gazebo reference="r_cover_handring_link"><xacro:g_cover_color/></gazebo>
-  <gazebo reference="l_cover_handpinky_link"><xacro:g_cover_color/></gazebo>
-  <gazebo reference="r_cover_handpinky_link"><xacro:g_cover_color/></gazebo>
-  <gazebo reference="l_cover_thumb_link"><xacro:g_cover_color/></gazebo>
-  <gazebo reference="r_cover_thumb_link"><xacro:g_cover_color/></gazebo>
-  <gazebo reference="l_cover_index_link"><xacro:g_cover_color/></gazebo>
-  <gazebo reference="r_cover_index_link"><xacro:g_cover_color/></gazebo>
-  <gazebo reference="l_cover_middle_link"><xacro:g_cover_color/></gazebo>
-  <gazebo reference="r_cover_middle_link"><xacro:g_cover_color/></gazebo>
-  <gazebo reference="l_cover_ring_link"><xacro:g_cover_color/></gazebo>
-  <gazebo reference="r_cover_ring_link"><xacro:g_cover_color/></gazebo>
-  <gazebo reference="l_cover_pinky_link"><xacro:g_cover_color/></gazebo>
-  <gazebo reference="r_cover_pinky_link"><xacro:g_cover_color/></gazebo>
-
+  <!-- (colors etc below this line are fine to keep as you had) -->
 </robot>
