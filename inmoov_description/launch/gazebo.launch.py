@@ -61,12 +61,6 @@ def generate_launch_description():
         name='joint_state_publisher_gui',
         condition=IfCondition(use_gui),
     )
-    # jsp_headless = Node(
-    #     package='joint_state_publisher',
-    #     executable='joint_state_publisher',
-    #     name='joint_state_publisher',
-    #     condition=UnlessCondition(use_gui),
-    # )
     rsp = Node(
         package='robot_state_publisher',
         executable='robot_state_publisher',
@@ -95,16 +89,20 @@ def generate_launch_description():
         package='controller_manager',
         executable='spawner',
         name='spawner_jsb',
-        arguments=['joint_state_broadcaster', '--controller-manager', '/controller_manager'],
+        arguments=['joint_state_broadcaster',
+                '--controller-manager', '/controller_manager'],
         output='screen'
     )
+
     spawner_pos = Node(
         package='controller_manager',
         executable='spawner',
         name='spawner_inmoov_position',
-        arguments=['inmoov_position_controller', '--controller-manager', '/controller_manager'],
+        arguments=['inmoov_position_controller',
+                '--controller-manager', '/controller_manager'],
         output='screen'
     )
+
     clock_bridge = Node(
         package='ros_gz_bridge',
         executable='parameter_bridge',
@@ -115,9 +113,9 @@ def generate_launch_description():
 
    
     # Order: xacro -> start gz -> spawn robot -> spawn controllers
-    delayed_gz     = TimerAction(period=0.5, actions=[gz])
+    delayed_gz     = TimerAction(period=5.5, actions=[gz])
     delayed_spawn  = TimerAction(period=2.0, actions=[spawn])
-    delayed_ctrls  = TimerAction(period=4.0, actions=[spawner_jsb, spawner_pos])
+    delayed_ctrls  = TimerAction(period=6.0, actions=[spawner_jsb, spawner_pos])
 
 
     # Start it shortly after gz comes up
