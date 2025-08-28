@@ -6,11 +6,11 @@ controller_manager:
       type: joint_state_broadcaster/JointStateBroadcaster
 
     # One controller to move everything with /inmoov_pos_cmd/commands
-    inmoov_pos_cmd:
+    inmoov_position_controller:
       type: position_controllers/JointGroupPositionController
 
 # Parameters for that controller (order matters!)
-inmoov_pos_cmd:
+inmoov_position_controller:
   ros__parameters:
     joints:
       - waist_pan_joint

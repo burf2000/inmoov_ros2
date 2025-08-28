@@ -102,7 +102,7 @@ def generate_launch_description():
         package='controller_manager',
         executable='spawner',
         name='spawner_inmoov_position',
-        arguments=['inmoov_pos_cmd', '--controller-manager', '/controller_manager'],
+        arguments=['inmoov_position_controller', '--controller-manager', '/controller_manager'],
         output='screen'
     )
     clock_bridge = Node(
