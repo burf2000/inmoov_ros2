@@ -18,7 +18,14 @@
     <xacro:if value="${side == 'r'}">
       <xacro:r_eyesupport_inertial/>
     </xacro:if>
-  </link>
+  
+    <collision>
+      <geometry>
+        <mesh filename="package://inmoov_description/meshes/${side}_eyesupport.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+</link>
 
   <link name="${side}_camera_link">
     <visual>
@@ -29,7 +36,14 @@
       <xacro:camera_color/>
     </visual>
     <xacro:camera_inertial/>
-  </link>
+  
+    <collision>
+      <geometry>
+        <mesh filename="package://inmoov_description/meshes/camera.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+</link>
 
   <link name="${side}_eye_link">
     <visual>
@@ -40,7 +54,14 @@
       <xacro:eyeball_color/>
     </visual>
     <xacro:eye_inertial/>
-  </link>
+  
+    <collision>
+      <geometry>
+        <mesh filename="package://inmoov_description/meshes/eye.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+</link>
 
   <link name="${side}_iris_link">
     <visual>
@@ -51,7 +72,14 @@
       <xacro:iris_color/>
     </visual>
     <xacro:iris_inertial/>
-  </link>
+  
+    <collision>
+      <geometry>
+        <mesh filename="package://inmoov_description/meshes/iris.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+</link>
 
   <joint name="${side}_camera_joint" type="fixed">
     <origin rpy="0 0 0" xyz="-0.001 0 0"/>

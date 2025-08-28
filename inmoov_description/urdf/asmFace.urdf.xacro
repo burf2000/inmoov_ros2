@@ -15,7 +15,14 @@
       <xacro:cover_color/>
     </visual>
     <xacro:face_inertial/>
-  </link>
+  
+    <collision>
+      <geometry>
+        <mesh filename="package://inmoov_description/meshes/face.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+</link>
 
   <joint name="eyes_tilt_joint" type="revolute">
    <axis xyz="0 1 0"/>
@@ -34,7 +41,14 @@
       <xacro:frame_color/>
     </visual>
     <xacro:eyesupport_inertial/>
-  </link>
+  
+    <collision>
+      <geometry>
+        <mesh filename="package://inmoov_description/meshes/eyesupport.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+</link>
 
 <xacro:asmEye side="r"/>
 

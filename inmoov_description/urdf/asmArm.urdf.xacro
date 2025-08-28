@@ -18,7 +18,14 @@
     <xacro:if value="${side == 'r'}">
       <xacro:r_shoulder_base_inertial/>
     </xacro:if>
-  </link>
+  
+    <collision>
+      <geometry>
+        <mesh filename="package://inmoov_description/meshes/${side}_shoulder_base.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+</link>
 
   <link name="${side}_shoulder_link">
     <visual>
@@ -34,7 +41,14 @@
     <xacro:if value="${side == 'r'}">
       <xacro:r_shoulder_inertial/>
     </xacro:if>
-  </link>
+  
+    <collision>
+      <geometry>
+        <mesh filename="package://inmoov_description/meshes/${side}_shoulder.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+</link>
 
   <link name="${side}_bicep_link">
     <visual>
@@ -45,7 +59,14 @@
       <xacro:frame_color/>
     </visual>
     <xacro:bicep_inertial/>
-  </link>
+  
+    <collision>
+      <geometry>
+        <mesh filename="package://inmoov_description/meshes/bicep.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+</link>
 
   <link name="${side}_bicepcover_link">
     <visual>
@@ -56,7 +77,14 @@
       <xacro:cover_color/>
     </visual>
     <xacro:bicepcover_inertial/>
-  </link>
+  
+    <collision>
+      <geometry>
+        <mesh filename="package://inmoov_description/meshes/bicepcover.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+</link>
 
   <link name="${side}_forearm_link">
     <visual>
@@ -72,7 +100,14 @@
     <xacro:if value="${side == 'r'}">
       <xacro:r_forearm_inertial/>
     </xacro:if>
-  </link>
+  
+    <collision>
+      <geometry>
+        <mesh filename="package://inmoov_description/meshes/${side}_forearm.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="${flip * 0.001} 0 0"/>
+    </collision>
+</link>
 
   <joint name="${side}_shoulder_lift_joint" type="revolute">
     <axis xyz="0 1 0"/>

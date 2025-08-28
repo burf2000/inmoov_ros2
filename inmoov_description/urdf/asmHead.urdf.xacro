@@ -13,7 +13,14 @@
       <xacro:frame_color/>
     </visual>
     <xacro:head_base_inertial/>
-  </link>
+  
+    <collision>
+      <geometry>
+        <mesh filename="package://inmoov_description/meshes/head_base.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+</link>
 
   <link name="head_link">
     <visual>
@@ -24,7 +31,14 @@
       <xacro:frame_color/>
     </visual>
     <xacro:head_inertial/>
-  </link>
+  
+    <collision>
+      <geometry>
+        <mesh filename="package://inmoov_description/meshes/head.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+</link>
 
   <link name="jaw_link">
     <visual>
@@ -35,7 +49,14 @@
       <xacro:cover_color/>
     </visual>
     <xacro:jaw_inertial/>
-  </link>
+  
+    <collision>
+      <geometry>
+        <mesh filename="package://inmoov_description/meshes/jaw.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+</link>
 
   <link name="skull_link">
     <visual>
@@ -46,7 +67,14 @@
       <xacro:cover_color/>
     </visual>
     <xacro:skull_inertial/>
-  </link>
+  
+    <collision>
+      <geometry>
+        <mesh filename="package://inmoov_description/meshes/skull.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+</link>
 
   <link name="left_ear_link">
     <visual>
@@ -57,7 +85,14 @@
       <xacro:frame_color/>
     </visual>
     <xacro:earleftv1_inertial/>
-  </link>
+  
+    <collision>
+      <geometry>
+        <mesh filename="package://inmoov_description/meshes/earleftv1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+</link>
 
   <link name="right_ear_link">
     <visual>
@@ -68,7 +103,14 @@
       <xacro:frame_color/>
     </visual>
     <xacro:earrightv1_inertial/>
-  </link>
+  
+    <collision>
+      <geometry>
+        <mesh filename="package://inmoov_description/meshes/earrightv1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+</link>
 
 
   <joint name="head_pan_joint" type="revolute">

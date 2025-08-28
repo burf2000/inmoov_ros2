@@ -18,7 +18,14 @@
       <xacro:if value="${side == 'r'}">
         <xacro:r_hand_inertial/>
       </xacro:if>
-    </link>
+    
+    <collision>
+      <geometry>
+          <mesh filename="package://inmoov_description/meshes/${side}_hand.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+</link>
     
     <link name="${side}_thumb1_link">
       <visual>
@@ -34,7 +41,14 @@
       <xacro:if value="${side == 'r'}">
         <xacro:r_thumb5_1_inertial/>
       </xacro:if>
-    </link>
+    
+    <collision>
+      <geometry>
+          <mesh filename="package://inmoov_description/meshes/${side}_thumb5_1.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+</link>
     
     <link name="${side}_thumb2_link">
       <visual>
@@ -45,7 +59,14 @@
         <xacro:frame_color/>
       </visual>
       <xacro:thumb5_2_inertial/>
-    </link>
+    
+    <collision>
+      <geometry>
+          <mesh filename="package://inmoov_description/meshes/thumb5_2.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+</link>
     
     <link name="${side}_thumb3_link">
       <visual>
@@ -56,7 +77,14 @@
         <xacro:frame_color/>
       </visual>
       <xacro:thumb5_3_inertial/>
-    </link>
+    
+    <collision>
+      <geometry>
+          <mesh filename="package://inmoov_description/meshes/thumb5_3.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+</link>
     
     <link name="${side}_index1_link">
       <visual>
@@ -67,7 +95,14 @@
         <xacro:frame_color/>
       </visual>
       <xacro:index3_1_inertial/>
-    </link>
+    
+    <collision>
+      <geometry>
+          <mesh filename="package://inmoov_description/meshes/index3_1.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+</link>
     
     <link name="${side}_index2_link">
       <visual>
@@ -78,7 +113,14 @@
         <xacro:frame_color/>
       </visual>
       <xacro:index3_2_inertial/>
-    </link>
+    
+    <collision>
+      <geometry>
+          <mesh filename="package://inmoov_description/meshes/index3_2.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+</link>
     
     <link name="${side}_index3_link">
       <visual>
@@ -89,7 +131,14 @@
         <xacro:frame_color/>
       </visual>
       <xacro:index3_3_inertial/>
-    </link>
+    
+    <collision>
+      <geometry>
+          <mesh filename="package://inmoov_description/meshes/index3_3.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+</link>
     
     <link name="${side}_middle1_link">
       <visual>
@@ -100,7 +149,14 @@
         <xacro:frame_color/>
       </visual>
       <xacro:middle3_1_inertial/>
-    </link>
+    
+    <collision>
+      <geometry>
+          <mesh filename="package://inmoov_description/meshes/middle3_1.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+</link>
     
     <link name="${side}_middle2_link">
       <visual>
@@ -111,7 +167,14 @@
         <xacro:frame_color/>
       </visual>
       <xacro:middle3_2_inertial/>
-    </link>
+    
+    <collision>
+      <geometry>
+          <mesh filename="package://inmoov_description/meshes/middle3_2.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+</link>
     
     <link name="${side}_middle3_link">
       <visual>
@@ -122,7 +185,14 @@
         <xacro:frame_color/>
       </visual>
       <xacro:middle3_3_inertial/>
-    </link>
+    
+    <collision>
+      <geometry>
+          <mesh filename="package://inmoov_description/meshes/middle3_3.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+</link>
     
     <link name="${side}_ring1_link">
       <visual>
@@ -138,7 +208,14 @@
       <xacro:if value="${side == 'r'}">
         <xacro:r_ring3_1_inertial/>
       </xacro:if>
-    </link>
+    
+    <collision>
+      <geometry>
+          <mesh filename="package://inmoov_description/meshes/${side}_ring3_1.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+</link>
 
     <link name="${side}_ring2_link">
       <visual>
@@ -149,7 +226,14 @@
         <xacro:frame_color/>
       </visual>
       <xacro:ring3_2_inertial/>
-    </link>
+    
+    <collision>
+      <geometry>
+          <mesh filename="package://inmoov_description/meshes/ring3_2.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+</link>
 
     <link name="${side}_ring3_link">
       <visual>
@@ -160,7 +244,14 @@
         <xacro:frame_color/>
       </visual>
       <xacro:ring3_3_inertial/>
-    </link>
+    
+    <collision>
+      <geometry>
+          <mesh filename="package://inmoov_description/meshes/ring3_3.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+</link>
 
     <link name="${side}_ring4_link">
       <visual>
@@ -171,7 +262,14 @@
         <xacro:frame_color/>
       </visual>
       <xacro:ring3_4_inertial/>
-    </link>
+    
+    <collision>
+      <geometry>
+          <mesh filename="package://inmoov_description/meshes/ring3_4.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+</link>
 
     <link name="${side}_pinky1_link">
       <visual>
@@ -187,7 +285,14 @@
       <xacro:if value="${side == 'r'}">
         <xacro:r_pinky3_1_inertial/>
       </xacro:if>
-    </link>
+    
+    <collision>
+      <geometry>
+          <mesh filename="package://inmoov_description/meshes/${side}_pinky3_1.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+</link>
 
     <link name="${side}_pinky2_link">
       <visual>
@@ -198,7 +303,14 @@
         <xacro:frame_color/>
       </visual>
       <xacro:pinky3_2_inertial/>
-    </link>
+    
+    <collision>
+      <geometry>
+          <mesh filename="package://inmoov_description/meshes/pinky3_2.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+</link>
 
     <link name="${side}_pinky3_link">
       <visual>
@@ -209,7 +321,14 @@
         <xacro:frame_color/>
       </visual>
       <xacro:pinky3_3_inertial/>
-    </link>
+    
+    <collision>
+      <geometry>
+          <mesh filename="package://inmoov_description/meshes/pinky3_3.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+</link>
 
     <link name="${side}_pinky4_link">
       <visual>
@@ -220,7 +339,14 @@
         <xacro:frame_color/>
       </visual>
       <xacro:pinky3_4_inertial/>
-    </link>
+    
+    <collision>
+      <geometry>
+          <mesh filename="package://inmoov_description/meshes/pinky3_4.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+</link>
 
     <joint name="${side}_thumb1_joint" type="revolute">
       <axis xyz="0 0 1"/>
@@ -469,7 +595,14 @@
       <xacro:if value="${side == 'r'}">
         <xacro:r_cover_hand_inertial/>
       </xacro:if>
-    </link>
+    
+    <collision>
+      <geometry>
+          <mesh filename="package://inmoov_description/meshes/${side}_cover_hand.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+</link>
 
     <link name="${side}_cover_handring_link">
       <visual>
@@ -485,7 +618,14 @@
       <xacro:if value="${side == 'r'}">
         <xacro:r_cover_handring_inertial/>
       </xacro:if>
-    </link>
+    
+    <collision>
+      <geometry>
+          <mesh filename="package://inmoov_description/meshes/${side}_cover_handring.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+</link>
 
     <link name="${side}_cover_handpinky_link">
       <visual>
@@ -501,7 +641,14 @@
       <xacro:if value="${side == 'r'}">
         <xacro:r_cover_handpinky_inertial/>
       </xacro:if>
-    </link>
+    
+    <collision>
+      <geometry>
+          <mesh filename="package://inmoov_description/meshes/${side}_cover_handpinky.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+</link>
     
     <link name="${side}_cover_thumb_link">
       <visual>
@@ -517,7 +664,14 @@
       <xacro:if value="${side == 'r'}">
         <xacro:r_cover_thumb_inertial/>
       </xacro:if>
-    </link>
+    
+    <collision>
+      <geometry>
+          <mesh filename="package://inmoov_description/meshes/${side}_cover_thumb.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+</link>
 
     <link name="${side}_cover_index_link">
       <visual>
@@ -533,7 +687,14 @@
       <xacro:if value="${side == 'r'}">
         <xacro:r_cover_index_inertial/>
       </xacro:if>
-    </link>
+    
+    <collision>
+      <geometry>
+          <mesh filename="package://inmoov_description/meshes/${side}_cover_index.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+</link>
 
     <link name="${side}_cover_middle_link">
       <visual>
@@ -549,7 +710,14 @@
       <xacro:if value="${side == 'r'}">
         <xacro:r_cover_middle_inertial/>
       </xacro:if>
-    </link>
+    
+    <collision>
+      <geometry>
+          <mesh filename="package://inmoov_description/meshes/${side}_cover_middle.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+</link>
 
     <link name="${side}_cover_ring_link">
       <visual>
@@ -565,7 +733,14 @@
       <xacro:if value="${side == 'r'}">
         <xacro:r_cover_ring_inertial/>
       </xacro:if>
-    </link>
+    
+    <collision>
+      <geometry>
+          <mesh filename="package://inmoov_description/meshes/${side}_cover_ring.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+</link>
 
     <link name="${side}_cover_pinky_link">
       <visual>
@@ -581,7 +756,14 @@
       <xacro:if value="${side == 'r'}">
         <xacro:r_cover_pinky_inertial/>
       </xacro:if>
-    </link>
+    
+    <collision>
+      <geometry>
+          <mesh filename="package://inmoov_description/meshes/${side}_cover_pinky.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+</link>
 
     <joint name="${side}_handcover_joint" type="fixed">
       <origin rpy="0 0 0" xyz="0.009 ${flip * 0.0192} -0.0977"/>

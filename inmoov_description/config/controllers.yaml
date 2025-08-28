@@ -1,17 +1,111 @@
+# inmoov_description/config/controllers.yaml
+
 controller_manager:
   ros__parameters:
-    update_rate: 250
+    update_rate: 250  # Hz
 
+    # Broadcaster
     joint_state_broadcaster:
       type: joint_state_broadcaster/JointStateBroadcaster
 
+    # Trajectory controller (actions + /joint_trajectory topic)
     inmoov_position_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    # Simple “forward” group position controller (Float64MultiArray on /commands)
+    inmoov_pos_cmd:
       type: position_controllers/JointGroupPositionController
 
+# ---- JointTrajectoryController params ----
 inmoov_position_controller:
   ros__parameters:
     joints:
+      - eyes_pan_joint
+      - eyes_tilt_joint
+      - head_pan_joint
       - head_roll_joint
       - head_tilt_joint
-    command_interfaces:
-      - position
+      - jaw_joint
+      - l_elbow_flex_joint
+      - l_index_joint
+      - l_middle_joint
+      - l_pinky_joint
+      - l_ring_joint
+      - l_shoulder_lift_joint
+      - l_shoulder_out_joint
+      - l_thumb_joint
+      - l_upper_arm_roll_joint
+      - l_wrist_roll_joint
+      - r_elbow_flex_joint
+      - r_index_joint
+      - r_middle_joint
+      - r_pinky_joint
+      - r_ring_joint
+      - r_shoulder_lift_joint
+      - r_shoulder_out_joint
+      - r_thumb_joint
+      - r_upper_arm_roll_joint
+      - r_wrist_roll_joint
+      - waist_pan_joint
+      - waist_roll_joint
+
+    # Position-only loop
+    command_interfaces: [position]
+    state_interfaces:   [position]
+
+    # Make state visible + allow 1-joint goals
+    state_publish_rate: 50.0
+    allow_partial_joints_goal: true
+
+    # Optional tolerances (loosened to avoid aborts while we debug motion)
+    constraints:
+      goal_time: 3.0
+      stopped_velocity_tolerance: 0.2
+
+# ---- Group Position (Forward) controller params ----
+inmoov_pos_cmd:
+  ros__parameters:
+    joints:
+      - eyes_pan_joint
+      - eyes_tilt_joint
+      - head_pan_joint
+      - head_roll_joint
+      - head_tilt_joint
+      - jaw_joint
+      - l_elbow_flex_joint
+      - l_index_joint
+      - l_middle_joint
+      - l_pinky_joint
+      - l_ring_joint
+      - l_shoulder_lift_joint
+      - l_shoulder_out_joint
+      - l_thumb_joint
+      - l_upper_arm_roll_joint
+      - l_wrist_roll_joint
+      - r_elbow_flex_joint
+      - r_index_joint
+      - r_middle_joint
+      - r_pinky_joint
+      - r_ring_joint
+      - r_shoulder_lift_joint
+      - r_shoulder_out_joint
+      - r_thumb_joint
+      - r_upper_arm_roll_joint
+      - r_wrist_roll_joint
+      - waist_pan_joint
+      - waist_roll_joint
+    # (JointGroupPositionController defaults to interface 'position')
+
+# ---- Parameters for the GazeboSim ros2_control plugin itself ----
+# (node name is /gz_ros_control)
+gz_ros_control:
+  ros__parameters:
+    # IMPORTANT: turn off the built-in “hold joints” clamp that can pin everything in place
+    hold_joints: false
+
+    # Global P gain for position control inside Gazebo (works for all exported joints)
+    position_proportional_gain: 60.0
+
+    # These keys might not be exposed in your build; harmless if ignored
+    position_d_gain: 1.0
+    position_i_gain: 0.0
