@@ -13,7 +13,7 @@
 <xacro:include filename="$(find inmoov_description)/urdf/asmArm.urdf.xacro" />
 <xacro:include filename="$(find inmoov_description)/urdf/asmHand.urdf.xacro" />
 
-<xacro:include filename="$(find inmoov_description)/urdf/inmoov.gazebo" />
+<xacro:include filename="$(find inmoov_description)/urdf/inmoov.gazebo.xacro" />
 
   <link name="world"/>
     <xacro:virtual_inertial/>
