@@ -112,10 +112,10 @@
   <joint name="${side}_shoulder_lift_joint" type="revolute">
     <axis xyz="0 1 0"/>
     <xacro:if value="${side == 'l'}">
-      <limit effort="1000.0" lower="${l_shoulder_lift_joint_lower}" upper="${l_shoulder_lift_joint_upper}" velocity="${l_shoulder_lift_joint_velocity}" />
+      <limit effort="10000.0" lower="${l_shoulder_lift_joint_lower}" upper="${l_shoulder_lift_joint_upper}" velocity="${l_shoulder_lift_joint_velocity}" />
     </xacro:if>
     <xacro:if value="${side == 'r'}">
-      <limit effort="1000.0" lower="${r_shoulder_lift_joint_lower}" upper="${r_shoulder_lift_joint_upper}" velocity="${r_shoulder_lift_joint_velocity}" />
+      <limit effort="10000.0" lower="${r_shoulder_lift_joint_lower}" upper="${r_shoulder_lift_joint_upper}" velocity="${r_shoulder_lift_joint_velocity}" />
     </xacro:if>
     <origin rpy="0 0 0" xyz="0 ${flip * -0.012} -0.04"/>
     <parent link="${side}_shoulder_base_link"/>
@@ -125,10 +125,10 @@
   <joint name="${side}_upper_arm_roll_joint" type="revolute">
     <axis xyz="0 0 1"/>
     <xacro:if value="${side == 'l'}">
-      <limit effort="1000.0" lower="${l_upper_arm_roll_joint_lower}" upper="${l_upper_arm_roll_joint_upper}" velocity="${l_upper_arm_roll_joint_velocity}" />
+      <limit effort="10000.0" lower="${l_upper_arm_roll_joint_lower}" upper="${l_upper_arm_roll_joint_upper}" velocity="${l_upper_arm_roll_joint_velocity}" />
     </xacro:if>
     <xacro:if value="${side == 'r'}">
-      <limit effort="1000.0" lower="${r_upper_arm_roll_joint_lower}" upper="${r_upper_arm_roll_joint_upper}" velocity="${r_upper_arm_roll_joint_velocity}" />
+      <limit effort="10000.0" lower="${r_upper_arm_roll_joint_lower}" upper="${r_upper_arm_roll_joint_upper}" velocity="${r_upper_arm_roll_joint_velocity}" />
     </xacro:if>
     <origin rpy="0 0 0" xyz="0 ${flip * -0.066} -0.060"/>
     <parent link="${side}_shoulder_link"/>
@@ -138,10 +138,10 @@
   <joint name="${side}_elbow_flex_joint" type="revolute">
     <axis xyz="0 1 0"/>
     <xacro:if value="${side == 'l'}">
-      <limit effort="1000.0" lower="${l_elbow_flex_joint_lower}" upper="${l_elbow_flex_joint_upper}" velocity="${l_elbow_flex_joint_velocity}" />
+      <limit effort="10000.0" lower="${l_elbow_flex_joint_lower}" upper="${l_elbow_flex_joint_upper}" velocity="${l_elbow_flex_joint_velocity}" />
     </xacro:if>
     <xacro:if value="${side == 'r'}">
-      <limit effort="1000.0" lower="${r_elbow_flex_joint_lower}" upper="${r_elbow_flex_joint_upper}" velocity="${r_elbow_flex_joint_velocity}" />
+      <limit effort="10000.0" lower="${r_elbow_flex_joint_lower}" upper="${r_elbow_flex_joint_upper}" velocity="${r_elbow_flex_joint_velocity}" />
     </xacro:if>
     <origin rpy="0 0 0" xyz="-0.0278 0 -0.2235"/>
     <parent link="${side}_bicep_link"/>

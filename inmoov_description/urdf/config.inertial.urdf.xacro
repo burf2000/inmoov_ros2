@@ -8,7 +8,7 @@
   <!-- PLA is 1.25g per 1.0cm^3 -->
  
   <!-- mass divisor, ros is kilograms-->
-  <xacro:property name="md" value="1000"/>
+  <xacro:property name="md" value="5000"/>
   
   <!-- inertia divisor, ros is meters, -->
   <!-- assume mass == volume for simplicity -->

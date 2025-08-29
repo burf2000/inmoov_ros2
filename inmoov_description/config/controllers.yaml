@@ -49,4 +49,5 @@ inmoov_position_controller:
 gz_ros_control:
   ros__parameters:
     hold_joints: false
-    position_proportional_gain: 60.0
+    position_proportional_gain: 2000.0
+    

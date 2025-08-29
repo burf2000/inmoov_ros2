@@ -6,10 +6,10 @@
        ============================================================ -->
   <xacro:property name="SERVO_MIN" value="-1.5707963267948966"/> <!-- -π/2 -->
   <xacro:property name="SERVO_MAX" value=" 1.5707963267948966"/> <!-- +π/2 -->
-  <xacro:property name="FORCE"     value="200.0"/>                 <!-- Nm-ish; tune -->
+  <xacro:property name="FORCE"     value="1000.0"/>                 <!-- Nm-ish; tune -->
 
   <!-- Small helper to declare one position-only joint with real torque -->
-  <xacro:macro name="pos_only_joint" params="jname cmd_min:=${SERVO_MIN} cmd_max:=${SERVO_MAX} kp:=60.0 kd:=1.0 ki:=0.0 fmax:=${FORCE}">
+  <xacro:macro name="pos_only_joint" params="jname cmd_min:=${SERVO_MIN} cmd_max:=${SERVO_MAX} kp:=1000.0 kd:=15.0 ki:=0.0 fmax:=${FORCE}">
     <joint name="${jname}">
       <command_interface name="position">
         <param name="position_proportional_gain">${kp}</param>
@@ -35,11 +35,21 @@
       <!-- Keep hardware section minimal; per-joint params above actually take effect -->
     </hardware>
 
+    <!-- Heavier group overrides -->
+    <xacro:pos_only_joint jname="waist_pan_joint"  kp="5200" kd="25" fmax="10000"/>
+    <xacro:pos_only_joint jname="waist_roll_joint" kp="8200" kd="25" fmax="10000"/>
+
+    <xacro:pos_only_joint jname="r_shoulder_lift_joint" kp="1800" kd="20" fmax="9000"/>
+    <xacro:pos_only_joint jname="r_shoulder_out_joint"  kp="1800" kd="20" fmax="9000"/>
+    <xacro:pos_only_joint jname="r_upper_arm_roll_joint" kp="1600" kd="18" fmax="8000"/>
+
+    <xacro:pos_only_joint jname="l_shoulder_lift_joint" kp="1800" kd="20" fmax="9000"/>
+    <xacro:pos_only_joint jname="l_shoulder_out_joint"  kp="1800" kd="20" fmax="9000"/>
+    <xacro:pos_only_joint jname="l_upper_arm_roll_joint" kp="1600" kd="18" fmax="8000"/>
+
     <!-- torso / neck / head -->
-    <xacro:pos_only_joint jname="waist_pan_joint"/>
-    <xacro:pos_only_joint jname="waist_roll_joint"/>
     <xacro:pos_only_joint jname="head_roll_joint"/>
-    <xacro:pos_only_joint jname="head_tilt_joint"/>
+    <xacro:pos_only_joint jname="head_tilt_joint" kp="8200" kd="25" fmax="10000"/>
     <xacro:pos_only_joint jname="head_pan_joint"/>
 
     <!-- jaw / eyes -->
@@ -48,18 +58,12 @@
     <xacro:pos_only_joint jname="eyes_pan_joint"/>
 
     <!-- right arm -->
-    <xacro:pos_only_joint jname="r_shoulder_lift_joint"/>
-    <xacro:pos_only_joint jname="r_upper_arm_roll_joint"/>
     <xacro:pos_only_joint jname="r_elbow_flex_joint"/>
-    <xacro:pos_only_joint jname="r_shoulder_out_joint"/>
-    <xacro:pos_only_joint jname="r_wrist_roll_joint" cmd_min="-3.141592653589793" cmd_max="3.141592653589793"/>
+    <xacro:pos_only_joint jname="r_wrist_roll_joint"/>
 
     <!-- left arm -->
-    <xacro:pos_only_joint jname="l_shoulder_lift_joint"/>
-    <xacro:pos_only_joint jname="l_upper_arm_roll_joint"/>
     <xacro:pos_only_joint jname="l_elbow_flex_joint"/>
-    <xacro:pos_only_joint jname="l_shoulder_out_joint"/>
-    <xacro:pos_only_joint jname="l_wrist_roll_joint" cmd_min="-3.141592653589793" cmd_max="3.141592653589793"/>
+    <xacro:pos_only_joint jname="l_wrist_roll_joint"/>
 
     <!-- left hand -->
     <xacro:pos_only_joint jname="l_thumb_joint"/>

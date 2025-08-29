@@ -12,7 +12,7 @@ joints:
     minGoal:        180.0
     maxGoal:        0.0
     rest:           0.0
-    maxSpeed:       0.0
+    maxSpeed:       50.0
     smoothing:      0
     sensorPin:      20
     minSensor:      1571
@@ -26,7 +26,7 @@ joints:
     minGoal:        45.0
     maxGoal:        -135.0
     rest:           0.0
-    maxSpeed:       0.0
+    maxSpeed:       50.0
     smoothing:      0
     sensorPin:      16
     minSensor:      750
@@ -40,7 +40,7 @@ joints:
     minGoal:        -5.0
     maxGoal:        85.0
     rest:           0.0
-    maxSpeed:       0.0
+    maxSpeed:       50.0
     smoothing:      0
     sensorPin:      23
     minSensor:      800
@@ -54,7 +54,7 @@ joints:
     minGoal:        -5.0
     maxGoal:        85.0
     rest:           0.0
-    maxSpeed:       0.0
+    maxSpeed:       50.0
     smoothing:      0
     sensorPin:      37
     minSensor:      700
@@ -68,7 +68,7 @@ joints:
     minGoal:        -15.0
     maxGoal:        15.0
     rest:           0.0
-    maxSpeed:       0.0
+    maxSpeed:       50.0
     smoothing:      0
     sensorPin:      20
     minSensor:      1661
@@ -82,7 +82,7 @@ joints:
     minGoal:        -5.0
     maxGoal:        65.0
     rest:           0.0
-    maxSpeed:       0.0
+    maxSpeed:       50.0
     smoothing:      0
     sensorPin:      21
     minSensor:      1000
@@ -96,7 +96,7 @@ joints:
     minGoal:        0.0
     maxGoal:        -180.0
     rest:           0.0
-    maxSpeed:       0.0
+    maxSpeed:       50.0
     smoothing:      0
     sensorPin:      20
     minSensor:      1655
@@ -110,7 +110,7 @@ joints:
     minGoal:        -5.0
     maxGoal:        85.0
     rest:           0.0
-    maxSpeed:       0.0
+    maxSpeed:       50.0
     smoothing:      0
     sensorPin:      34
     minSensor:      735
@@ -124,7 +124,7 @@ joints:
     minGoal:        -5.0
     maxGoal:        65.0
     rest:           0.0
-    maxSpeed:       0.0
+    maxSpeed:       50.0
     smoothing:      0
     sensorPin:      21
     minSensor:      1020
@@ -138,7 +138,7 @@ joints:
     minGoal:        -15.0
     maxGoal:        -85.0
     rest:           0.0
-    maxSpeed:       0.0
+    maxSpeed:       50.0
     smoothing:      0
     sensorPin:      19
     minSensor:      540
@@ -152,7 +152,7 @@ joints:
     minGoal:        0.0
     maxGoal:        5.0
     rest:           0.0
-    maxSpeed:       0.0
+    maxSpeed:       50.0
     smoothing:      0
     sensorPin:      34
     minSensor:      550
@@ -166,7 +166,7 @@ joints:
     minGoal:        -5.0
     maxGoal:        85.0
     rest:           0.0
-    maxSpeed:       0.0
+    maxSpeed:       50.0
     smoothing:      0
     sensorPin:      34
     minSensor:      900
@@ -180,7 +180,7 @@ joints:
     minGoal:        -15.0
     maxGoal:        -80.0
     rest:           0.0
-    maxSpeed:       0.0
+    maxSpeed:       50.0
     smoothing:      0
     sensorPin:      19
     minSensor:      750
@@ -194,7 +194,7 @@ joints:
     minGoal:        -30.0
     maxGoal:        30.0
     rest:           0.0
-    maxSpeed:       0.0
+    maxSpeed:       50.0
     smoothing:      0
     sensorPin:      22
     minSensor:      2300
@@ -208,7 +208,7 @@ joints:
     minGoal:        -5.0
     maxGoal:        85.0
     rest:           0.0
-    maxSpeed:       0.0
+    maxSpeed:       50.0
     smoothing:      0
     sensorPin:      23
     minSensor:      1100
@@ -222,7 +222,7 @@ joints:
     minGoal:        45.0
     maxGoal:        -135.0
     rest:           0.0
-    maxSpeed:       0.0
+    maxSpeed:       50.0
     smoothing:      0
     sensorPin:      16
     minSensor:      750
@@ -236,7 +236,7 @@ joints:
     minGoal:        -20.0
     maxGoal:        20.0
     rest:           0.0
-    maxSpeed:       0.0
+    maxSpeed:       50.0
     smoothing:      0
     sensorPin:      21
     minSensor:      1200
@@ -250,7 +250,7 @@ joints:
     minGoal:        -5.0
     maxGoal:        85.0
     rest:           0.0
-    maxSpeed:       0.0
+    maxSpeed:       50.0
     smoothing:      0
     sensorPin:      37
     minSensor:      800
@@ -264,7 +264,7 @@ joints:
     minGoal:        -5.0
     maxGoal:        85.0
     rest:           0.0
-    maxSpeed:       0.0
+    maxSpeed:       50.0
     smoothing:      0
     sensorPin:      22
     minSensor:      726
@@ -278,7 +278,7 @@ joints:
     minGoal:        -100.0
     maxGoal:        90.0
     rest:           0.0
-    maxSpeed:       0.0
+    maxSpeed:       50.0
     smoothing:      0
     sensorPin:      37
     minSensor:      780
@@ -292,7 +292,7 @@ joints:
     minGoal:        -5.0
     maxGoal:        85.0
     rest:           0.0
-    maxSpeed:       0.0
+    maxSpeed:       50.0
     smoothing:      0
     sensorPin:      22
     minSensor:      1200
@@ -306,7 +306,7 @@ joints:
     minGoal:        5.0
     maxGoal:        60.0
     rest:           0.0
-    maxSpeed:       0.0
+    maxSpeed:       50.0
     smoothing:      0
     sensorPin:      17
     minSensor:      680
@@ -320,7 +320,7 @@ joints:
     minGoal:        -90.0
     maxGoal:        90.0
     rest:           0.0
-    maxSpeed:       0.0
+    maxSpeed:       50.0
     smoothing:      0
     sensorPin:      18
     minSensor:      1700
@@ -334,7 +334,7 @@ joints:
     minGoal:        15.0
     maxGoal:        -15.0
     rest:           0.0
-    maxSpeed:       0.0
+    maxSpeed:       50.0
     smoothing:      0
     sensorPin:      19
     minSensor:      2950
@@ -348,7 +348,7 @@ joints:
     minGoal:        90.0
     maxGoal:        -90.0
     rest:           0.0
-    maxSpeed:       0.0
+    maxSpeed:       50.0
     smoothing:      0
     sensorPin:      18
     minSensor:      960
@@ -362,7 +362,7 @@ joints:
     minGoal:        -90.0
     maxGoal:        90.0
     rest:           0.0
-    maxSpeed:       0.0
+    maxSpeed:       50.0
     smoothing:      0
     sensorPin:      18
     minSensor:      970
@@ -376,7 +376,7 @@ joints:
     minGoal:        15.0
     maxGoal:        -15.0
     rest:           0.0
-    maxSpeed:       0.0
+    maxSpeed:       50.0
     smoothing:      0
     sensorPin:      23
     minSensor:      2337
@@ -390,7 +390,7 @@ joints:
     minGoal:        -5.0
     maxGoal:        -60.0
     rest:           0.0
-    maxSpeed:       0.0
+    maxSpeed:       50.0
     smoothing:      0
     sensorPin:      17
     minSensor:      750
