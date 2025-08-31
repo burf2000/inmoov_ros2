@@ -115,7 +115,7 @@
 
   <joint name="head_pan_joint" type="revolute">
    <axis xyz="0 0 1"/>
-   <limit effort="10000.0" lower="${head_pan_joint_lower}" upper="${head_pan_joint_upper}" velocity="${head_pan_joint_velocity}" />
+   <limit effort="1000.0" lower="${head_pan_joint_lower}" upper="${head_pan_joint_upper}" velocity="${head_pan_joint_velocity}" />
    <origin rpy="0 0 0" xyz="0 0 0.0245"/>
    <parent link="head_base_link"/>
    <child link="head_link"/>
@@ -123,7 +123,7 @@
 
   <joint name="jaw_joint" type="revolute">
    <axis xyz="0 1 0"/>
-   <limit effort="10000.0" lower="${jaw_joint_lower}" upper="${jaw_joint_upper}" velocity="${jaw_joint_velocity}" />
+   <limit effort="1000.0" lower="${jaw_joint_lower}" upper="${jaw_joint_upper}" velocity="${jaw_joint_velocity}" />
    <origin rpy="0 0.09 0" xyz="0.0375 0.0005 0.0437"/>
    <parent link="head_link"/>
    <child link="jaw_link"/>

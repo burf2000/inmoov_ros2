@@ -151,7 +151,7 @@
 
   <joint name="waist_pan_joint" type="revolute">
    <axis xyz="0 0 1"/>
-   <limit effort="10000.0" lower="${waist_pan_joint_lower}" upper="${waist_pan_joint_upper}" velocity="${waist_pan_joint_velocity}" />
+   <limit effort="1000.0" lower="${waist_pan_joint_lower}" upper="${waist_pan_joint_upper}" velocity="${waist_pan_joint_velocity}" />
    <origin rpy="0 0 0" xyz="0 0 1.152"/>
     <parent link="mid_stomach_link"/>
     <child link="top_stomach_link"/>
@@ -166,7 +166,7 @@
 
   <joint name="waist_roll_joint" type="revolute">
    <axis xyz="1 0 0"/>
-   <limit effort="10000.0" lower="${waist_roll_joint_lower}" upper="${waist_roll_joint_upper}" velocity="${waist_roll_joint_velocity}" />
+   <limit effort="1000.0" lower="${waist_roll_joint_lower}" upper="${waist_roll_joint_upper}" velocity="${waist_roll_joint_velocity}" />
    <origin rpy="0 0 0" xyz="0 0 0.11"/>
     <parent link="top_stomach_link"/>
     <child link="torso_link"/>

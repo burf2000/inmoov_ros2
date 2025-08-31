@@ -94,7 +94,7 @@
 
   <joint name="head_roll_joint" type="revolute">
    <axis xyz="1 0 0"/>
-   <limit effort="10000.0" lower="${head_roll_joint_lower}" upper="${head_roll_joint_upper}" velocity="${head_roll_joint_velocity}" />
+   <limit effort="1000.0" lower="${head_roll_joint_lower}" upper="${head_roll_joint_upper}" velocity="${head_roll_joint_velocity}" />
    <origin rpy="0 0 3.1415" xyz="-0.0315  -0.001 0.4551"/>
    <parent link="torso_link"/>
    <child link="head_tilt_link"/>

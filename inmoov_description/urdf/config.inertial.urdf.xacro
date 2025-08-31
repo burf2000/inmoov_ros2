@@ -8,12 +8,12 @@
   <!-- PLA is 1.25g per 1.0cm^3 -->
  
   <!-- mass divisor, ros is kilograms-->
-  <xacro:property name="md" value="5000"/>
+  <xacro:property name="rho" value="1000"/>
+  <xacro:property name="md" value="${1e9 / rho}"/>
+  <xacro:property name="id" value="${md * 1e6}"/>
   
   <!-- inertia divisor, ros is meters, -->
   <!-- assume mass == volume for simplicity -->
-  <xacro:property name="id" value="${ md * md * md}"/>
-  
 <!-- 
 Opened mesh /home/grey/inmoov_ros/src/inmoov_ros/inmoov_description/meshes/bicep.stl in 6 msec
 All files opened in 2436 msec
@@ -36,6 +36,7 @@ axis momenta are :
 -->
   <xacro:macro name="bicep_inertial">
     <inertial>
+      <origin xyz="-0.010079529 0.000072064 -0.081852776" rpy="0 0 0"/>
       <mass value="${281912.656250 / md}"/>
       <inertia
         ixx="${  1283355392.000000 / id }"
@@ -70,6 +71,7 @@ axis momenta are :
 -->
   <xacro:macro name="bicepcover_inertial">
     <inertial>
+      <origin xyz="0.004113691 0.000023778 -0.098293915" rpy="0 0 0"/>
       <mass value="${176269.609375 / md}"/>
       <inertia
         ixx="${   536349632.000000 / id }"
@@ -104,6 +106,7 @@ axis momenta are :
 -->
   <xacro:macro name="camera_inertial">
     <inertial>
+      <origin xyz="0.002337499 -0.000368498 -0.002255082" rpy="0 0 0"/>
       <mass value="${2466.067627 / md}"/>
       <inertia
         ixx="${    240846.265625 / id }"
@@ -138,6 +141,7 @@ axis momenta are :
 -->
   <xacro:macro name="chest_inertial">
     <inertial>
+      <origin xyz="0.016772718 -0.001230909 0.125540794" rpy="0 0 0"/>
       <mass value="${755680.687500 / md}"/>
       <inertia
         ixx="${  7996578816.000000 / id }"
@@ -172,6 +176,7 @@ axis momenta are :
 -->
   <xacro:macro name="disk_inertial">
     <inertial>
+      <origin xyz="0.020559896 -0.000052606 0.008121016" rpy="0 0 0"/>
       <mass value="${178967.343750 / md}"/>
       <inertia
         ixx="${   518276192.000000 / id }"
@@ -206,6 +211,7 @@ axis momenta are :
 -->
   <xacro:macro name="earleftv1_inertial">
     <inertial>
+      <origin xyz="0.003795357 0.007653911 0.002931803" rpy="0 0 0"/>
       <mass value="${ 85197.960938 / md}"/>
       <inertia
         ixx="${    44230340.000000 / id }"
@@ -240,6 +246,7 @@ axis momenta are :
 -->
   <xacro:macro name="earrightv1_inertial">
     <inertial>
+      <origin xyz="0.003741870 -0.007651948 0.002376738" rpy="0 0 0"/>
       <mass value="${ 85175.406250 / md}"/>
       <inertia
         ixx="${    44218692.000000 / id }"
@@ -274,6 +281,7 @@ axis momenta are :
 -->
   <xacro:macro name="eye_inertial">
     <inertial>
+      <origin xyz="0.003185493 0.000000001 0.000000025" rpy="0 0 0"/>
       <mass value="${ 4659.753906 / md}"/>
       <inertia
         ixx="${     913717.187500 / id }"
@@ -308,6 +316,7 @@ axis momenta are :
 -->
   <xacro:macro name="eyesupport_inertial">
     <inertial>
+      <origin xyz="-0.003586834 -0.000028465 0.001197724" rpy="0 0 0"/>
       <mass value="${ 27550.294922 / md}"/>
       <inertia
         ixx="${    20632590.000000 / id }"
@@ -342,6 +351,7 @@ axis momenta are :
 -->
   <xacro:macro name="face_inertial">
     <inertial>
+      <origin xyz="0.019483259 -0.000081941 -0.009738870" rpy="0 0 0"/>
       <mass value="${ 46559.031250 / md}"/>
       <inertia
         ixx="${    60878272.000000 / id }"
@@ -376,6 +386,7 @@ axis momenta are :
 -->
   <xacro:macro name="head_inertial">
     <inertial>
+      <origin xyz="0.033712868 -0.000019775 0.019798304" rpy="0 0 0"/>
       <mass value="${ 120499.460938 / md}"/>
       <inertia
         ixx="${     92508680.000000 / id }"
@@ -410,6 +421,7 @@ axis momenta are :
 -->
   <xacro:macro name="head_base_inertial">
     <inertial>
+      <origin xyz="0.007293888 0.000021165 0.014839767" rpy="0 0 0"/>
       <mass value="${ 43502.281250 / md}"/>
       <inertia
         ixx="${    25681996.000000 / id }"
@@ -444,6 +456,7 @@ axis momenta are :
 -->
   <xacro:macro name="index3_1_inertial">
     <inertial>
+      <origin xyz="0.000327900 -0.000041642 -0.017815184" rpy="0 0 0"/>
       <mass value="${ 4854.550781 / md}"/>
       <inertia
         ixx="${     785518.812500 / id }"
@@ -478,6 +491,7 @@ axis momenta are :
 -->
   <xacro:macro name="index3_2_inertial">
     <inertial>
+      <origin xyz="0.000920736 -0.000011680 -0.010908571" rpy="0 0 0"/>
       <mass value="${ 2911.548828 / md}"/>
       <inertia
         ixx="${     247697.562500 / id }"
@@ -512,6 +526,7 @@ axis momenta are :
 -->
   <xacro:macro name="index3_3_inertial">
     <inertial>
+      <origin xyz="-0.000195631 -0.000042939 -0.012565110" rpy="0 0 0"/>
       <mass value="${ 2754.759033 / md}"/>
       <inertia
         ixx="${     240287.703125 / id }"
@@ -546,6 +561,7 @@ axis momenta are :
 -->
   <xacro:macro name="iris_inertial">
     <inertial>
+      <origin xyz="0.002386165 0.000000047 -0.000099872" rpy="0 0 0"/>
       <mass value="${ 1026.836548 / md}"/>
       <inertia
         ixx="${      85819.992188 / id }"
@@ -580,6 +596,7 @@ axis momenta are :
 -->
   <xacro:macro name="jaw_inertial">
     <inertial>
+      <origin xyz="0.063222282 0.000037192 -0.049244869" rpy="0 0 0"/>
       <mass value="${ 58767.261719 / md}"/>
       <inertia
         ixx="${   147272256.000000 / id }"
@@ -614,6 +631,7 @@ axis momenta are :
 -->
   <xacro:macro name="kinectone_inertial">
     <inertial>
+      <origin xyz="0.001100458 0.048963375 0.038179012" rpy="0 0 0"/>
       <mass value="${ 790831.937500 / md}"/>
       <inertia
         ixx="${    539265728.000000 / id }"
@@ -648,6 +666,7 @@ axis momenta are :
 -->
   <xacro:macro name="l_cover_hand_inertial">
     <inertial>
+      <origin xyz="0.003708912 0.013324540 0.043250717" rpy="0 0 0"/>
       <mass value="${ 39850.039062 / md}"/>
       <inertia
         ixx="${    43945356.000000 / id }"
@@ -682,6 +701,7 @@ axis momenta are :
 -->
   <xacro:macro name="l_cover_handpinky_inertial">
     <inertial>
+      <origin xyz="0.002283108 -0.000345010 0.001597708" rpy="0 0 0"/>
       <mass value="${ 3887.731445 / md}"/>
       <inertia
         ixx="${     732629.187500 / id }"
@@ -716,6 +736,7 @@ axis momenta are :
 -->
   <xacro:macro name="l_cover_handring_inertial">
     <inertial>
+      <origin xyz="0.002592369 0.000223609 -0.001677225" rpy="0 0 0"/>
       <mass value="${ 3507.538086 / md}"/>
       <inertia
         ixx="${     430486.968750 / id }"
@@ -750,6 +771,7 @@ axis momenta are :
 -->
   <xacro:macro name="l_cover_index_inertial">
     <inertial>
+      <origin xyz="0.004354176 -0.000273627 0.000371592" rpy="0 0 0"/>
       <mass value="${ 1635.368652 / md}"/>
       <inertia
         ixx="${     167985.140625 / id }"
@@ -784,6 +806,7 @@ axis momenta are :
 -->
   <xacro:macro name="l_cover_middle_inertial">
     <inertial>
+      <origin xyz="0.004406314 -0.000082271 0.000264647" rpy="0 0 0"/>
       <mass value="${ 1904.471313 / md}"/>
       <inertia
         ixx="${     234427.671875 / id }"
@@ -818,6 +841,7 @@ axis momenta are :
 -->
   <xacro:macro name="l_cover_pinky_inertial">
     <inertial>
+      <origin xyz="0.003877148 -0.000506894 0.001602272" rpy="0 0 0"/>
       <mass value="${ 1285.607300 / md}"/>
       <inertia
         ixx="${     109421.882812 / id }"
@@ -852,6 +876,7 @@ axis momenta are :
 -->
   <xacro:macro name="l_cover_ring_inertial">
     <inertial>
+      <origin xyz="0.004013374 0.000186770 0.001242054" rpy="0 0 0"/>
       <mass value="${ 1466.901733 / md}"/>
       <inertia
         ixx="${     147694.687500 / id }"
@@ -886,6 +911,7 @@ axis momenta are :
 -->
   <xacro:macro name="l_cover_thumb_inertial">
     <inertial>
+      <origin xyz="0.002521784 0.002407381 -0.000141687" rpy="0 0 0"/>
       <mass value="${ 3250.209717 / md}"/>
       <inertia
         ixx="${     543531.937500 / id }"
@@ -920,6 +946,7 @@ axis momenta are :
 -->
   <xacro:macro name="l_eyesupport_inertial">
     <inertial>
+      <origin xyz="-0.004087140 -0.000392808 0.002943427" rpy="0 0 0"/>
       <mass value="${ 11370.105469 / md}"/>
       <inertia
         ixx="${     2432392.250000 / id }"
@@ -954,6 +981,7 @@ axis momenta are :
 -->
   <xacro:macro name="l_forearm_inertial">
     <inertial>
+      <origin xyz="-0.006129842 -0.003489157 -0.118607628" rpy="0 0 0"/>
       <mass value="${ 401766.593750 / md}"/>
       <inertia
         ixx="${   3242308096.000000 / id }"
@@ -988,6 +1016,7 @@ axis momenta are :
 -->
   <xacro:macro name="l_hand_inertial">
     <inertial>
+      <origin xyz="-0.000270632 -0.005146427 -0.053579273" rpy="0 0 0"/>
       <mass value="${ 83605.007812 / md}"/>
       <inertia
         ixx="${   126485224.000000 / id }"
@@ -1023,6 +1052,7 @@ axis momenta are :
 -->
   <xacro:macro name="l_pinky3_1_inertial">
     <inertial>
+      <origin xyz="-0.000456468 0.018407099 -0.005171003" rpy="0 0 0"/>
       <mass value="${ 14892.949219 / md}"/>
       <inertia
         ixx="${     4361011.000000 / id }"
@@ -1057,6 +1087,7 @@ axis momenta are :
 -->
   <xacro:macro name="l_ring3_1_inertial">
     <inertial>
+      <origin xyz="-0.000064880 0.015507306 -0.002144598" rpy="0 0 0"/>
       <mass value="${ 10810.309570 / md}"/>
       <inertia
         ixx="${     2392349.000000 / id }"
@@ -1091,6 +1122,7 @@ axis momenta are :
 -->
   <xacro:macro name="l_shoulder_inertial">
     <inertial>
+      <origin xyz="-0.001760977 0.046793152 -0.026001684" rpy="0 0 0"/>
       <mass value="${ 322443.343750 / md}"/>
       <inertia
         ixx="${    601346048.000000 / id }"
@@ -1126,6 +1158,7 @@ axis momenta are :
 -->
   <xacro:macro name="l_shoulder_base_inertial">
     <inertial>
+      <origin xyz="-0.003377304 -0.011160115 -0.046922394" rpy="0 0 0"/>
       <mass value="${ 266526.968750 / md}"/>
       <inertia
         ixx="${    350410240.000000 / id }"
@@ -1160,6 +1193,7 @@ axis momenta are :
 -->
   <xacro:macro name="l_thumb5_1_inertial">
     <inertial>
+      <origin xyz="0.001007494 -0.013727526 -0.002808447" rpy="0 0 0"/>
       <mass value="${ 10044.437500 / md}"/>
       <inertia
         ixx="${     1744373.625000 / id }"
@@ -1194,6 +1228,7 @@ axis momenta are :
 -->
   <xacro:macro name="middle3_1_inertial">
     <inertial>
+      <origin xyz="0.000259172 0.000005322 -0.018944950" rpy="0 0 0"/>
       <mass value="${ 5988.140625 / md}"/>
       <inertia
         ixx="${    1114858.750000 / id }"
@@ -1228,6 +1263,7 @@ axis momenta are :
 -->
   <xacro:macro name="middle3_2_inertial">
     <inertial>
+      <origin xyz="0.000997151 -0.000059130 -0.011654193" rpy="0 0 0"/>
       <mass value="${ 3588.543701 / md}"/>
       <inertia
         ixx="${     350951.468750 / id }"
@@ -1262,6 +1298,7 @@ axis momenta are :
 -->
   <xacro:macro name="middle3_3_inertial">
     <inertial>
+      <origin xyz="-0.000301118 -0.000030560 -0.013531679" rpy="0 0 0"/>
       <mass value="${ 3395.293457 / md}"/>
       <inertia
         ixx="${     340450.843750 / id }"
@@ -1296,6 +1333,7 @@ axis momenta are :
 -->
   <xacro:macro name="mid_stomach_inertial">
     <inertial>
+      <origin xyz="-0.004659371 -0.000067826 -0.041636871" rpy="0 0 0"/>
       <mass value="${ 1710217.625000 / md}"/>
       <inertia
         ixx="${   10129861632.000000 / id }"
@@ -1330,6 +1368,7 @@ axis momenta are :
 -->
   <xacro:macro name="pinky3_2_inertial">
     <inertial>
+      <origin xyz="0.000292973 0.000060040 -0.015377484" rpy="0 0 0"/>
       <mass value="${ 3053.924072 / md}"/>
       <inertia
         ixx="${     362563.156250 / id }"
@@ -1364,6 +1403,7 @@ axis momenta are :
 -->
   <xacro:macro name="pinky3_3_inertial">
     <inertial>
+      <origin xyz="0.000831476 -0.000076120 -0.009414209" rpy="0 0 0"/>
       <mass value="${ 1848.707520 / md}"/>
       <inertia
         ixx="${     116124.148438 / id }"
@@ -1398,6 +1438,7 @@ axis momenta are :
 -->
   <xacro:macro name="pinky3_4_inertial">
     <inertial>
+      <origin xyz="-0.000214676 -0.000034577 -0.010846709" rpy="0 0 0"/>
       <mass value="${ 1748.221436 / md}"/>
       <inertia
         ixx="${     112612.445312 / id }"
@@ -1432,6 +1473,7 @@ axis momenta are :
 -->
   <xacro:macro name="r_cover_hand_inertial">
     <inertial>
+      <origin xyz="0.003708912 -0.013324539 0.043250721" rpy="0 0 0"/>
       <mass value="${ 39850.042969 / md}"/>
       <inertia
         ixx="${    43945364.000000 / id }"
@@ -1466,6 +1508,7 @@ axis momenta are :
 -->
   <xacro:macro name="r_cover_handpinky_inertial">
     <inertial>
+      <origin xyz="0.002283108 0.000345010 0.001597708" rpy="0 0 0"/>
       <mass value="${ 3887.731445 / md}"/>
       <inertia
         ixx="${     732629.187500 / id }"
@@ -1500,6 +1543,7 @@ axis momenta are :
 -->
   <xacro:macro name="r_cover_handring_inertial">
     <inertial>
+      <origin xyz="0.002592369 -0.000223609 -0.001677225" rpy="0 0 0"/>
       <mass value="${ 3507.538330 / md}"/>
       <inertia
         ixx="${     430487.000000 / id }"
@@ -1534,6 +1578,7 @@ axis momenta are :
 -->
   <xacro:macro name="r_cover_index_inertial">
     <inertial>
+      <origin xyz="0.004354176 0.000273627 0.000371592" rpy="0 0 0"/>
       <mass value="${ 1635.368652 / md}"/>
       <inertia
         ixx="${     167985.140625 / id }"
@@ -1568,6 +1613,7 @@ axis momenta are :
 -->
   <xacro:macro name="r_cover_middle_inertial">
     <inertial>
+      <origin xyz="0.004406314 0.000082271 0.000264647" rpy="0 0 0"/>
       <mass value="${ 1904.471313 / md}"/>
       <inertia
         ixx="${     234427.671875 / id }"
@@ -1602,6 +1648,7 @@ axis momenta are :
 -->
   <xacro:macro name="r_cover_pinky_inertial">
     <inertial>
+      <origin xyz="0.003877148 0.000506894 0.001602272" rpy="0 0 0"/>
       <mass value="${ 1285.607300 / md}"/>
       <inertia
         ixx="${     109421.882812 / id }"
@@ -1636,6 +1683,7 @@ axis momenta are :
 -->
   <xacro:macro name="r_cover_ring_inertial">
     <inertial>
+      <origin xyz="0.004013374 -0.000186770 0.001242054" rpy="0 0 0"/>
       <mass value="${ 1466.901733 / md}"/>
       <inertia
         ixx="${     147694.687500 / id }"
@@ -1670,6 +1718,7 @@ axis momenta are :
 -->
   <xacro:macro name="r_cover_thumb_inertial">
     <inertial>
+      <origin xyz="0.002521784 -0.002407381 -0.000141687" rpy="0 0 0"/>
       <mass value="${ 3250.209961 / md}"/>
       <inertia
         ixx="${     543531.937500 / id }"
@@ -1704,6 +1753,7 @@ axis momenta are :
 -->
   <xacro:macro name="r_eyesupport_inertial">
     <inertial>
+      <origin xyz="-0.004087140 0.000392808 0.002943427" rpy="0 0 0"/>
       <mass value="${ 11370.105469 / md}"/>
       <inertia
         ixx="${     2432392.250000 / id }"
@@ -1738,6 +1788,7 @@ axis momenta are :
 -->
   <xacro:macro name="r_forearm_inertial">
     <inertial>
+      <origin xyz="-0.006129843 0.003489157 -0.118607635" rpy="0 0 0"/>
       <mass value="${ 401766.593750 / md}"/>
       <inertia
         ixx="${   3242307584.000000 / id }"
@@ -1772,6 +1823,7 @@ axis momenta are :
 -->
   <xacro:macro name="r_hand_inertial">
     <inertial>
+      <origin xyz="-0.000270633 0.005146428 -0.053579273" rpy="0 0 0"/>
       <mass value="${ 83605.000000 / md}"/>
       <inertia
         ixx="${   126485184.000000 / id }"
@@ -1806,6 +1858,7 @@ axis momenta are :
 -->
   <xacro:macro name="ring3_2_inertial">
     <inertial>
+      <origin xyz="0.000230179 -0.000040497 -0.016867937" rpy="0 0 0"/>
       <mass value="${ 4222.559082 / md}"/>
       <inertia
         ixx="${     622774.062500 / id }"
@@ -1840,6 +1893,7 @@ axis momenta are :
 -->
   <xacro:macro name="ring3_3_inertial">
     <inertial>
+      <origin xyz="0.000920449 -0.000022269 -0.010337892" rpy="0 0 0"/>
       <mass value="${ 2530.003662 / md}"/>
       <inertia
         ixx="${     195998.000000 / id }"
@@ -1874,6 +1928,7 @@ axis momenta are :
 -->
   <xacro:macro name="ring3_4_inertial">
     <inertial>
+      <origin xyz="-0.000248927 0.000051272 -0.012062567" rpy="0 0 0"/>
       <mass value="${ 2393.758301 / md}"/>
       <inertia
         ixx="${     190133.796875 / id }"
@@ -1908,6 +1963,7 @@ axis momenta are :
 -->
   <xacro:macro name="r_pinky3_1_inertial">
     <inertial>
+      <origin xyz="-0.000456468 -0.018407099 -0.005171003" rpy="0 0 0"/>
       <mass value="${ 14892.949219 / md}"/>
       <inertia
         ixx="${     4361011.500000 / id }"
@@ -1942,6 +1998,7 @@ axis momenta are :
 -->
   <xacro:macro name="r_ring3_1_inertial">
     <inertial>
+      <origin xyz="-0.000064880 -0.015507305 -0.002144598" rpy="0 0 0"/>
       <mass value="${ 10810.309570 / md}"/>
       <inertia
         ixx="${     2392349.500000 / id }"
@@ -1976,6 +2033,7 @@ axis momenta are :
 -->
   <xacro:macro name="r_shoulder_inertial">
     <inertial>
+      <origin xyz="-0.001760979 -0.046793152 -0.026001682" rpy="0 0 0"/>
       <mass value="${ 322443.343750 / md}"/>
       <inertia
         ixx="${    601345920.000000 / id }"
@@ -2010,6 +2068,7 @@ axis momenta are :
 -->
   <xacro:macro name="r_shoulder_base_inertial">
     <inertial>
+      <origin xyz="-0.003377304 0.011160116 -0.046922394" rpy="0 0 0"/>
       <mass value="${ 266526.968750 / md}"/>
       <inertia
         ixx="${    350410112.000000 / id }"
@@ -2044,6 +2103,7 @@ axis momenta are :
 -->
   <xacro:macro name="r_thumb5_1_inertial">
     <inertial>
+      <origin xyz="0.001007495 0.013727525 -0.002808447" rpy="0 0 0"/>
       <mass value="${ 10044.436523 / md}"/>
       <inertia
         ixx="${     1744373.375000 / id }"
@@ -2078,6 +2138,7 @@ axis momenta are :
 -->
   <xacro:macro name="skull_inertial">
     <inertial>
+      <origin xyz="-0.003423218 0.001018229 0.101525459" rpy="0 0 0"/>
       <mass value="${ 422313.062500 / md}"/>
       <inertia
         ixx="${   1823237120.000000 / id }"
@@ -2112,6 +2173,7 @@ axis momenta are :
 -->
   <xacro:macro name="thumb5_2_inertial">
     <inertial>
+      <origin xyz="-0.000025869 -0.000050593 -0.016259710" rpy="0 0 0"/>
       <mass value="${ 7511.052246 / md}"/>
       <inertia
         ixx="${    1304244.500000 / id }"
@@ -2146,6 +2208,7 @@ axis momenta are :
 -->
   <xacro:macro name="thumb5_3_inertial">
     <inertial>
+      <origin xyz="0.000392466 -0.000002426 -0.013323187" rpy="0 0 0"/>
       <mass value="${ 5812.545410 / md}"/>
       <inertia
         ixx="${     714990.187500 / id }"
@@ -2180,6 +2243,7 @@ axis momenta are :
 -->
   <xacro:macro name="top_stomach_inertial">
     <inertial>
+      <origin xyz="-0.003812517 -0.000053483 0.044282845" rpy="0 0 0"/>
       <mass value="${ 1144889.750000 / md}"/>
       <inertia
         ixx="${    5824147968.000000 / id }"
@@ -2214,6 +2278,7 @@ axis momenta are :
 -->
   <xacro:macro name="torso_inertial">
     <inertial>
+      <origin xyz="-0.003839768 -0.000257000 0.172243729" rpy="0 0 0"/>
       <mass value="${ 1923293.750000 / md}"/>
       <inertia
         ixx="${   35267092480.000000 / id }"
@@ -2247,16 +2312,10 @@ axis momenta are :
 | 0.166667 0.166667 0.166667 |
 -->
   <xacro:macro name="virtual_inertial">
-    <inertial>
-      <mass value="${ 1.000000 / md}"/>
-      <inertia
-        ixx="${ 0.166667 / id }"
-        ixy="${ 0.000000 / id }"
-        ixz="${ 0.000000 / id }"
-        iyy="${ 0.166667 / id }"
-        iyz="${ 0.000000 / id }"
-        izz="${ 0.166667 / id }"
-      />
+        <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.0005"/>
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6"/>
     </inertial>
   </xacro:macro>
 
