@@ -7,7 +7,7 @@ joints:
   l_wrist_roll_joint:
     minGoal:        180.0
     maxGoal:        0.0
-    maxSpeed:       100.0
+    maxSpeed:       1000.0
 
   r_shoulder_lift_joint:
     minGoal:        45.0
@@ -17,12 +17,12 @@ joints:
   l_ring_joint:     
     minGoal:        -5.0
     maxGoal:        85.0
-    maxSpeed:       100.0
+    maxSpeed:       1000.0
 
   l_index_joint:    
     minGoal:        -5.0
     maxGoal:        85.0
-    maxSpeed:       100.0
+    maxSpeed:       1000.0
   
   head_roll_joint:  
     minGoal:        -15.0
@@ -32,22 +32,22 @@ joints:
   r_thumb_joint:    
     minGoal:        -5.0
     maxGoal:        65.0
-    maxSpeed:       100.0
+    maxSpeed:       1000.0
 
   r_wrist_roll_joint:
     minGoal:        0.0
     maxGoal:        -180.0
-    maxSpeed:       100.0
+    maxSpeed:       1000.0
 
   l_middle_joint:   
     minGoal:        -5.0
     maxGoal:        85.0
-    maxSpeed:       100.0
+    maxSpeed:       1000.0
 
   l_thumb_joint:    
     minGoal:        -5.0
     maxGoal:        65.0
-    maxSpeed:       100.0
+    maxSpeed:       1000.0
 
   l_elbow_flex_joint:
     minGoal:        -15.0
@@ -62,7 +62,7 @@ joints:
   r_middle_joint:   
     minGoal:        -5.0
     maxGoal:        85.0
-    maxSpeed:       100.0
+    maxSpeed:       1000.0
 
   r_elbow_flex_joint:
     minGoal:        -15.0
@@ -77,7 +77,7 @@ joints:
   r_ring_joint:     
     minGoal:        -5.0
     maxGoal:        85.0
-    maxSpeed:       100.0
+    maxSpeed:       1000.0
 
   l_shoulder_lift_joint:
     minGoal:        45.0
@@ -92,12 +92,12 @@ joints:
   r_index_joint:    
     minGoal:        -5.0
     maxGoal:        85.0
-    maxSpeed:       100.0
+    maxSpeed:       1000.0
 
   l_pinky_joint:    
     minGoal:        -5.0
     maxGoal:        85.0
-    maxSpeed:       100.0
+    maxSpeed:       1000.0
 
   head_pan_joint:   
     minGoal:        -100.0
@@ -107,7 +107,7 @@ joints:
   r_pinky_joint:    
     minGoal:        -5.0
     maxGoal:        85.0
-    maxSpeed:       100.0
+    maxSpeed:       1000.0
 
   l_shoulder_out_joint:
     minGoal:        5.0
