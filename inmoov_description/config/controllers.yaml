@@ -43,6 +43,7 @@ inmoov_position_controller:
       - r_middle_joint
       - r_ring_joint
       - r_pinky_joint
+
     command_interfaces: [position]
     state_interfaces:   [position]   # add velocity here if you want it published too
     state_publish_rate: 50.0
@@ -51,4 +52,4 @@ inmoov_position_controller:
 gz_ros_control:
   ros__parameters:
     hold_joints: false
-    position_proportional_gain: 200.0  # tune as needed; try 300–800 if too stiff
+    position_proportional_gain: 300.0  # tune as needed; try 300–800 if too stiff
