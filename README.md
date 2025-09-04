@@ -3,10 +3,10 @@
 Thank you Alan and MRL for their ROS1 / ROS 2 work.
 
 
-## This is a ROS2 only repo, ROS1 files are being removed and the repo is being simplified
-
 ### What Is It?
-At the moment this is a ROS2 Rviz2/Gazebo display of an InMoov robot with joint control
+At the moment this is a ROS2 Rviz2/Gazebo display of an InMoov robot with joint control.
+You can use Slider.py to move each joint in Gazebo
+
 
 ### Current system
 - Ubuntu 24.04 LTS
