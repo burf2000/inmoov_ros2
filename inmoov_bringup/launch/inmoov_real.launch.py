@@ -61,7 +61,7 @@ def generate_launch_description():
             description="true = log every servo move the driver WOULD make and send "
                         "nothing to MRL. Always prove a new setup here first."),
         DeclareLaunchArgument(
-            "enabled_groups", default_value="head",
+            "enabled_groups", default_value="head,rightArm,leftArm,rightHand,leftHand,torso",
             description="Comma-separated bring-up groups actually driven: head, eyes, "
                         "rightArm, leftArm, rightHand, leftHand, torso. Default head only "
                         "-- every other group's direction signs are unverified."),

@@ -55,7 +55,7 @@ def generate_launch_description():
             "dry_run", default_value="false",
             description="true = log what the relay WOULD send and send nothing."),
         DeclareLaunchArgument(
-            "enabled_groups", default_value="head",
+            "enabled_groups", default_value="head,rightArm,leftArm,rightHand,leftHand,torso",
             description="Groups actually driven. Default head only."),
         DeclareLaunchArgument("mrl_host", default_value="pi5-inmoov.local"),
         DeclareLaunchArgument("mrl_port", default_value="8888"),

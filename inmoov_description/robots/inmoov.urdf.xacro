@@ -29,7 +29,7 @@
 <xacro:arg name="use_real_hardware" default="false"/>
 <xacro:arg name="mrl_host"          default="pi5-inmoov.local"/>
 <xacro:arg name="mrl_port"          default="8888"/>
-<xacro:arg name="enabled_groups"    default="head"/>
+<xacro:arg name="enabled_groups"    default="head,rightArm,leftArm,rightHand,leftHand,torso"/>
 <xacro:arg name="dry_run"           default="false"/>
 <xacro:arg name="joint_map"         default=""/>
 

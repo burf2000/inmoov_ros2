@@ -69,9 +69,9 @@ joints:
     servo_max: 150.0
     servo_rest: 90.0
     mode: centred
-    invert: false
+    invert: true
     enabled: true
-    verified: live
+    verified: live   # direction eyeballed by Simon 2026-07-28: drove the WRONG way with the previous invert, flipped and re-checked
     # 2026-07-28, live on the real robot from skynet with inmoov-driver.service stopped:
     # commanded 0 -> +0.20 rad -> 0 -> -0.20 rad -> 0 through the /joint_states relay,
     # capped to +/-8 deg. MRL reported rothead 90 -> 97 -> 90 -> 83 -> 90 and it returned
@@ -114,9 +114,9 @@ joints:
     servo_max: 130.0
     servo_rest: 90.0
     mode: centred
-    invert: false
+    invert: true
     enabled: true
-    verified: none
+    verified: live   # direction eyeballed by Simon 2026-07-28: drove the WRONG way with the previous invert, flipped and re-checked
 
   - urdf_joint: jaw_joint
     group: head
@@ -147,9 +147,9 @@ joints:
     servo_max: 120.0
     servo_rest: 90.0
     mode: centred
-    invert: false
+    invert: true
     enabled: true
-    verified: none
+    verified: live   # direction eyeballed by Simon 2026-07-28: drove the WRONG way with the previous invert, flipped and re-checked
 
   - urdf_joint: eyes_tilt_joint
     group: eyes
@@ -223,9 +223,9 @@ joints:
     servo_max: 130.0
     servo_rest: 95.0
     mode: centred          # bidirectional twist, rest is mid-travel
-    invert: false
+    invert: true
     enabled: true
-    verified: none
+    verified: live   # direction eyeballed by Simon 2026-07-28: drove the WRONG way with the previous invert, flipped and re-checked
 
   - urdf_joint: r_elbow_flex_joint
     group: rightArm
@@ -255,9 +255,9 @@ joints:
     servo_max: 180.0
     servo_rest: 90.0
     mode: centred
-    invert: false
+    invert: true
     enabled: true
-    verified: none
+    verified: live   # direction eyeballed by Simon 2026-07-28: drove the WRONG way with the previous invert, flipped and re-checked
 
   # ------------------------------------------------------------ left arm ----
   - urdf_joint: l_shoulder_lift_joint
@@ -304,9 +304,9 @@ joints:
     servo_max: 125.0
     servo_rest: 90.0
     mode: centred
-    invert: false
+    invert: true
     enabled: true
-    verified: none
+    verified: live   # direction eyeballed by Simon 2026-07-28: drove the WRONG way with the previous invert, flipped and re-checked
 
   - urdf_joint: l_elbow_flex_joint
     group: leftArm
@@ -336,9 +336,9 @@ joints:
     servo_max: 180.0
     servo_rest: 90.0
     mode: centred
-    invert: false
+    invert: true
     enabled: true
-    verified: none
+    verified: live   # direction eyeballed by Simon 2026-07-28: drove the WRONG way with the previous invert, flipped and re-checked
 
   # ---------------------------------------------------------- right hand ----
   # Fingers: servo 0 == open == rest, 180 == fully curled. URDF home 0 maps to rest;
@@ -521,9 +521,9 @@ joints:
     servo_max: 180.0
     servo_rest: 90.0
     mode: centred
-    invert: false
+    invert: true
     enabled: true
-    verified: none
+    verified: live   # direction eyeballed by Simon 2026-07-28: drove the WRONG way with the previous invert, flipped and re-checked
     safety_min: 60.0
     safety_max: 120.0
 
@@ -539,9 +539,9 @@ joints:
     servo_max: 120.0
     servo_rest: 90.0
     mode: centred
-    invert: false
+    invert: true
     enabled: true
-    verified: none
+    verified: live   # direction eyeballed by Simon 2026-07-28: drove the WRONG way with the previous invert, flipped and re-checked
 
   # --------------------------------------------- parked: no servo exists ----
   # The URDF models each finger as 3-4 chained revolute joints, but the real hand has

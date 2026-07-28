@@ -234,11 +234,18 @@ void MrlClient::workerLoop()
         const bool changed = it_last == last_sent_deg_.end() ||
           std::abs(it_last->second - deg) >= cfg_.move_epsilon_deg;
 
-        bool stale = true;
-        const auto it_at = last_sent_at_.find(svc);
-        if (it_at != last_sent_at_.end()) {
-          stale = std::chrono::duration<double>(now - it_at->second).count() >=
-            cfg_.hold_refresh_s;
+        // hold_refresh_s <= 0 disables the anti-droop pulse entirely. These are hobby servos
+        // with no thermal protection, and re-asserting a held pose forever keeps every one of
+        // them energised; letting a limb sag is the safer failure. The explicit guard is
+        // REQUIRED: without it a 0 interval means "always stale" and pulses harder, not less.
+        bool stale = false;
+        if (cfg_.hold_refresh_s > 0.0) {
+          stale = true;
+          const auto it_at = last_sent_at_.find(svc);
+          if (it_at != last_sent_at_.end()) {
+            stale = std::chrono::duration<double>(now - it_at->second).count() >=
+              cfg_.hold_refresh_s;
+          }
         }
         // Send if the value moved OR the held pose is due its anti-droop refresh pulse.
         if (force || changed || stale) {

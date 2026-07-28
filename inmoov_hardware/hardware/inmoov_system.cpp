@@ -90,7 +90,7 @@ hardware_interface::CallbackReturn InmoovSystem::on_init(
   mrl_cfg_.port = static_cast<int>(paramDouble(hp, "mrl_port", 8888));
   mrl_cfg_.dry_run = paramBool(hp, "dry_run", false);
   mrl_cfg_.move_epsilon_deg = paramDouble(hp, "move_epsilon_deg", 1.0);
-  mrl_cfg_.hold_refresh_s = paramDouble(hp, "hold_refresh_s", 0.5);
+  mrl_cfg_.hold_refresh_s = paramDouble(hp, "hold_refresh_s", 0.0);
   mrl_cfg_.worker_rate_hz = paramDouble(hp, "worker_rate_hz", 20.0);
   mrl_cfg_.request_timeout_s = paramDouble(hp, "request_timeout_s", 1.0);
   refresh_limits_ = paramBool(hp, "refresh_limits", true);

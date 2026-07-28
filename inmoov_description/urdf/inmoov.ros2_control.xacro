@@ -17,7 +17,7 @@
                params="name:='inmoov_system'
                        mrl_host:='pi5-inmoov.local'
                        mrl_port:=8888
-                       enabled_groups:='head'
+                       enabled_groups:='head,rightArm,leftArm,rightHand,leftHand,torso'
                        dry_run:='false'
                        joint_map:=''
                        refresh_limits:='true'

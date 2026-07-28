@@ -52,7 +52,7 @@ struct MrlClientConfig
   /// MRL with sub-degree noise from a 50 Hz controller.
   double move_epsilon_deg{1.0};
   /// ...but re-assert every servo at least this often anyway, or held poses droop.
-  double hold_refresh_s{0.5};
+  double hold_refresh_s{0.0};  // 0 = never re-assert a held pose (servo heat)
   /// How often the worker wakes to consider sending. 20 Hz is well above what MRL's
   /// serial servo bus can usefully absorb.
   double worker_rate_hz{20.0};

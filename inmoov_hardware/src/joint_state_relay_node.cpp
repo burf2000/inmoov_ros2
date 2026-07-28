@@ -47,7 +47,7 @@ public:
     cfg.port = static_cast<int>(declare_parameter<int>("mrl_port", 8888));
     cfg.dry_run = declare_parameter<bool>("dry_run", false);
     cfg.move_epsilon_deg = declare_parameter<double>("move_epsilon_deg", 1.0);
-    cfg.hold_refresh_s = declare_parameter<double>("hold_refresh_s", 0.5);
+    cfg.hold_refresh_s = declare_parameter<double>("hold_refresh_s", 0.0);
     cfg.worker_rate_hz = declare_parameter<double>("worker_rate_hz", 20.0);
     const bool refresh_limits = declare_parameter<bool>("refresh_limits", true);
     rest_on_shutdown_ = declare_parameter<bool>("rest_on_shutdown", true);
