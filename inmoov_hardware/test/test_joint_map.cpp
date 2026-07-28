@@ -170,11 +170,15 @@ TEST(JointMap, KnownHeadPanNumbers)
   ASSERT_NE(j, nullptr);
   ASSERT_TRUE(j->enabled);
   EXPECT_EQ(j->service, "i01.head.rothead");
-  EXPECT_NEAR(j->toServoDegrees(0.0), 90.0, 1e-9);            // home -> rest
-  EXPECT_NEAR(j->toServoDegrees(1.5707963267948966), 150.0, 1e-6);   // +90 deg -> servo max
-  EXPECT_NEAR(j->toServoDegrees(-1.7453292519943295), 30.0, 1e-6);   // -100 deg -> servo min
-  // Half travel on the positive side is half the servo span above rest.
-  EXPECT_NEAR(j->toServoDegrees(0.7853981633974483), 120.0, 1e-6);
+  // head_pan is INVERTED: Simon watched it on the robot and it drove the wrong way, so
+  // positive radians now map BELOW rest, not above it. Home still lands exactly on rest.
+  EXPECT_TRUE(j->invert) << "head_pan direction was confirmed by eye; do not silently unset";
+  EXPECT_NEAR(j->toServoDegrees(0.0), 90.0, 1e-9);                   // home -> rest
+  EXPECT_NEAR(j->toServoDegrees(1.5707963267948966), 30.0, 1e-6);    // +90 deg -> servo min
+  EXPECT_NEAR(j->toServoDegrees(-1.7453292519943295), 150.0, 1e-6);  // -100 deg -> clamped max
+  // Half the positive travel is half the servo span BELOW rest. The whole mapping is
+  // a clean mirror of the pre-flip numbers about rest: 150->30, 120->60.
+  EXPECT_NEAR(j->toServoDegrees(0.7853981633974483), 60.0, 1e-6);
 }
 
 TEST(JointMap, KnownJawNumbersAreFloored)

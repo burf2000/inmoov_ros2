@@ -21,7 +21,7 @@
                        dry_run:='false'
                        joint_map:=''
                        refresh_limits:='true'
-                       hold_refresh_s:=0.5
+                       hold_refresh_s:=0.0
                        move_epsilon_deg:=1.0
                        require_mrl:='true'">
 

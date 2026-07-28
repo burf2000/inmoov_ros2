@@ -155,7 +155,7 @@
   <xacro:arm side="r" flip="1" covers="yes" />
 
   <joint name="r_shoulder_out_joint" type="revolute">
-   <axis xyz="1 0 0"/>
+   <axis xyz="-1 0 0"/>
    <limit effort="10000.0" lower="${r_shoulder_out_joint_lower}" upper="${r_shoulder_out_joint_upper}" velocity="${r_shoulder_out_joint_velocity}" />
    <origin rpy="0 0 0" xyz="0 -0.143 0.298"/>
    <parent link="torso_link"/>
@@ -165,7 +165,7 @@
   <xacro:hand side="r" flip="1" covers="yes" />
 
   <joint name="r_wrist_roll_joint" type="revolute">
-   <axis xyz="0 0 1"/>
+   <axis xyz="0 0 -1"/>
    <limit effort="10000.0" lower="${r_wrist_roll_joint_lower}" upper="${r_wrist_roll_joint_upper}" velocity="${r_wrist_roll_joint_velocity}" />
    <origin rpy="0 0 0" xyz="-0.0144 0.01  -0.2885"/>
    <parent link="r_forearm_link"/>

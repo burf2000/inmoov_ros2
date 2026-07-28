@@ -180,9 +180,9 @@ joints:
     mrl_group: rightArm
     mrl_servo: shoulder
     service: i01.rightArm.shoulder
-    urdf_min_rad: -2.356194490192345
-    urdf_max_rad:  0.7853981633974483
-    urdf_home_rad: 0.0
+    urdf_min_rad: -0.78539816339744828
+    urdf_max_rad: 2.3561944901923448
+    urdf_home_rad: -0
     servo_min: 50.0
     servo_max: 120.0
     servo_rest: 62.0
@@ -191,25 +191,25 @@ joints:
     # lopsided -- 58 deg of raise against 12 deg the other way. The per-side scaling
     # handles that; labelling it floored would be a lie the loader now rejects.
     mode: centred
-    invert: true           # GUESS: negative URDF lift == raise. NOT confirmed by eye.
+    invert: false           # GUESS: negative URDF lift == raise. NOT confirmed by eye.
     enabled: true
-    verified: none
+    verified: none   # sign convention negated 2026-07-28 so a positive slider moves the arm FORWARD; re-check by eye
 
   - urdf_joint: r_shoulder_out_joint
     group: rightArm
     mrl_group: rightArm
     mrl_servo: omoplate
     service: i01.rightArm.omoplate
-    urdf_min_rad: -1.0471975511965976
-    urdf_max_rad: -0.08726646259971647
-    urdf_home_rad: -0.08726646259971647   # arm closest to the body == servo rest (60)
+    urdf_min_rad: 0.087266462599716474
+    urdf_max_rad: 1.0471975511965976
+    urdf_home_rad: 0.087266462599716474 # arm closest to the body == servo rest (60)
     servo_min: 60.0
     servo_max: 130.0
     servo_rest: 60.0
     mode: floored
-    invert: true           # URDF travels NEGATIVE away from home, servo travels UP
+    invert: false           # URDF travels NEGATIVE away from home, servo travels UP
     enabled: true
-    verified: none
+    verified: none   # URDF sign convention negated 2026-07-28 so L/R sliders agree; direction needs re-checking by eye
 
   - urdf_joint: r_upper_arm_roll_joint
     group: rightArm
@@ -248,16 +248,16 @@ joints:
     mrl_group: rightHand
     mrl_servo: wrist
     service: i01.rightHand.wrist
-    urdf_min_rad: -3.141592653589793
-    urdf_max_rad:  0.0
-    urdf_home_rad: -1.5707963267948966   # URDF MIDPOINT, because servo rest 90 is mid-travel
+    urdf_min_rad: -1.5707963267948966
+    urdf_max_rad: 1.5707963267948966
+    urdf_home_rad: 0 # URDF MIDPOINT, because servo rest 90 is mid-travel
     servo_min: 0.0
     servo_max: 180.0
     servo_rest: 90.0
     mode: centred
-    invert: true
+    invert: false
     enabled: true
-    verified: live   # direction eyeballed by Simon 2026-07-28: drove the WRONG way with the previous invert, flipped and re-checked
+    verified: none   # re-centred on zero 2026-07-28 so the slider's middle is the wrist's rest position
 
   # ------------------------------------------------------------ left arm ----
   - urdf_joint: l_shoulder_lift_joint
@@ -265,16 +265,16 @@ joints:
     mrl_group: leftArm
     mrl_servo: shoulder
     service: i01.leftArm.shoulder
-    urdf_min_rad: -2.356194490192345
-    urdf_max_rad:  0.7853981633974483
-    urdf_home_rad: 0.0
+    urdf_min_rad: -0.78539816339744828
+    urdf_max_rad: 2.3561944901923448
+    urdf_home_rad: -0
     servo_min: 30.0
     servo_max: 90.0
     servo_rest: 35.0       # note: only 5 deg of travel BELOW rest on this arm
     mode: centred          # same reasoning as the right shoulder above
-    invert: true
+    invert: false
     enabled: true
-    verified: none
+    verified: none   # sign convention negated 2026-07-28 so a positive slider moves the arm FORWARD; re-check by eye
 
   - urdf_joint: l_shoulder_out_joint
     group: leftArm
@@ -329,16 +329,16 @@ joints:
     mrl_group: leftHand
     mrl_servo: wrist
     service: i01.leftHand.wrist
-    urdf_min_rad: 0.0
-    urdf_max_rad: 3.141592653589793
-    urdf_home_rad: 1.5707963267948966   # URDF midpoint -> servo rest 90
+    urdf_min_rad: -1.5707963267948966
+    urdf_max_rad: 1.5707963267948966
+    urdf_home_rad: 0 # URDF midpoint -> servo rest 90
     servo_min: 0.0
     servo_max: 180.0
     servo_rest: 90.0
     mode: centred
     invert: true
     enabled: true
-    verified: live   # direction eyeballed by Simon 2026-07-28: drove the WRONG way with the previous invert, flipped and re-checked
+    verified: none   # re-centred on zero 2026-07-28 so the slider's middle is the wrist's rest position
 
   # ---------------------------------------------------------- right hand ----
   # Fingers: servo 0 == open == rest, 180 == fully curled. URDF home 0 maps to rest;
