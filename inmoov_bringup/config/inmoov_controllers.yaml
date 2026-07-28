@@ -1,0 +1,73 @@
+# Controller configuration for the REAL InMoov.
+#
+# Deliberately different from inmoov_description/config/controllers.yaml, which is tuned
+# for Gazebo (1 kHz to match a 0.001 s sim step). There is no point running a real-hardware
+# loop anywhere near that: every command ends up as an HTTP request to MyRobotLab and then
+# a pulse down a serial servo bus. 50 Hz is already faster than the servos can act on.
+
+controller_manager:
+  ros__parameters:
+    update_rate: 50  # Hz
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    inmoov_position_controller:
+      # forward_command_controller/ForwardCommandController with interface_name: position
+      # is exactly what position_controllers/JointGroupPositionController wraps. It is used
+      # directly because ros-jazzy-ros2-controllers (which provides position_controllers)
+      # is NOT installed on skynet, and forward_command_controller is. Swapping to
+      # position_controllers/JointGroupPositionController works identically if you ever
+      # apt install ros-jazzy-ros2-controllers -- drop the interface_name line if you do.
+      type: forward_command_controller/ForwardCommandController
+
+joint_state_broadcaster:
+  ros__parameters: {}
+
+# Order matters: this is the index order of the Float64MultiArray you publish to
+# /inmoov_position_controller/commands.
+# These are the 28 joints that have a servo behind them -- the same list as the
+# <ros2_control> block in inmoov_description/urdf/inmoov.ros2_control.xacro.
+# NOTE: a joint appearing here does NOT mean it will move. The hardware interface's
+# `enabled_groups` parameter is the gate; a joint outside the enabled groups has its
+# command accepted and then dropped, so the robot is left exactly where it was.
+inmoov_position_controller:
+  ros__parameters:
+    joints:
+      # head
+      - head_pan_joint
+      - head_tilt_joint
+      - head_roll_joint
+      - jaw_joint
+      # eyes
+      - eyes_pan_joint
+      - eyes_tilt_joint
+      # torso
+      - waist_pan_joint
+      - waist_roll_joint
+      # right arm
+      - r_shoulder_lift_joint
+      - r_shoulder_out_joint
+      - r_upper_arm_roll_joint
+      - r_elbow_flex_joint
+      - r_wrist_roll_joint
+      # left arm
+      - l_shoulder_lift_joint
+      - l_shoulder_out_joint
+      - l_upper_arm_roll_joint
+      - l_elbow_flex_joint
+      - l_wrist_roll_joint
+      # right hand
+      - r_thumb_joint
+      - r_index_joint
+      - r_middle_joint
+      - r_ring_joint
+      - r_pinky_joint
+      # left hand
+      - l_thumb_joint
+      - l_index_joint
+      - l_middle_joint
+      - l_ring_joint
+      - l_pinky_joint
+
+    interface_name: position

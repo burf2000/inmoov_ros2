@@ -13,7 +13,40 @@
 <xacro:include filename="$(find inmoov_description)/urdf/asmArm.urdf.xacro" />
 <xacro:include filename="$(find inmoov_description)/urdf/asmHand.urdf.xacro" />
 
+<!-- ==========================================================================
+     Control back-end selection.
+
+     use_real_hardware:=false (default) -> Gazebo Sim ros2_control, exactly as before.
+     use_real_hardware:=true            -> the inmoov_hardware SystemInterface that drives
+                                           the physical robot through MyRobotLab, and NO
+                                           Gazebo plugin at all (there is nothing to
+                                           simulate when the real robot is the plant).
+
+     Both files only DEFINE macros, so including them unconditionally is free; only the
+     invocation below is gated. inmoov_description gains no dependency on inmoov_hardware
+     from this — the plugin is a string that pluginlib resolves at run time.
+     ========================================================================== -->
+<xacro:arg name="use_real_hardware" default="false"/>
+<xacro:arg name="mrl_host"          default="pi5-inmoov.local"/>
+<xacro:arg name="mrl_port"          default="8888"/>
+<xacro:arg name="enabled_groups"    default="head"/>
+<xacro:arg name="dry_run"           default="false"/>
+<xacro:arg name="joint_map"         default=""/>
+
 <xacro:include filename="$(find inmoov_description)/urdf/inmoov.gazebo.xacro" />
+<xacro:include filename="$(find inmoov_description)/urdf/inmoov.ros2_control.xacro" />
+
+<xacro:if value="$(arg use_real_hardware)">
+  <xacro:inmoov_real_ros2_control
+      mrl_host="$(arg mrl_host)"
+      mrl_port="$(arg mrl_port)"
+      enabled_groups="$(arg enabled_groups)"
+      dry_run="$(arg dry_run)"
+      joint_map="$(arg joint_map)"/>
+</xacro:if>
+<xacro:unless value="$(arg use_real_hardware)">
+  <xacro:inmoov_gazebo_control/>
+</xacro:unless>
 
   <link name="world"/>
     <xacro:virtual_inertial/>

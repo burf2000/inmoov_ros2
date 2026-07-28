@@ -1,0 +1,10 @@
+<library path="inmoov_hardware">
+  <class name="inmoov_hardware/InmoovSystem"
+         type="inmoov_hardware::InmoovSystem"
+         base_class_type="hardware_interface::SystemInterface">
+    <description>
+      Drives the real InMoov humanoid by translating URDF joint positions (radians) into
+      MyRobotLab servo positions (degrees) and pushing them to MRL over HTTP.
+    </description>
+  </class>
+</library>
