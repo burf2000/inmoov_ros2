@@ -200,16 +200,16 @@ joints:
     mrl_group: rightArm
     mrl_servo: omoplate
     service: i01.rightArm.omoplate
-    urdf_min_rad: 0.087266462599716474
-    urdf_max_rad: 1.0471975511965976
-    urdf_home_rad: 0.087266462599716474 # arm closest to the body == servo rest (60)
+    urdf_min_rad: 0
+    urdf_max_rad: 0.95993108859688114
+    urdf_home_rad: 0 # arm closest to the body == servo rest (60)
     servo_min: 60.0
     servo_max: 130.0
     servo_rest: 60.0
     mode: floored
-    invert: false           # URDF travels NEGATIVE away from home, servo travels UP
+    invert: true           # URDF travels NEGATIVE away from home, servo travels UP
     enabled: true
-    verified: none   # URDF sign convention negated 2026-07-28 so L/R sliders agree; direction needs re-checking by eye
+    verified: none   # re-based on zero 2026-07-28: slider zero is now the rest pose and positive is flex/out; re-check by eye
 
   - urdf_joint: r_upper_arm_roll_joint
     group: rightArm
@@ -232,16 +232,16 @@ joints:
     mrl_group: rightArm
     mrl_servo: bicep
     service: i01.rightArm.bicep
-    urdf_min_rad: -1.3962634015954636
-    urdf_max_rad: -0.2617993877991494
-    urdf_home_rad: -0.2617993877991494   # straightest arm == bicep rest (5)
+    urdf_min_rad: 0
+    urdf_max_rad: 1.1344640137963142
+    urdf_home_rad: 0 # straightest arm == bicep rest (5)
     servo_min: 5.0
     servo_max: 90.0
     servo_rest: 5.0
     mode: floored
-    invert: true           # URDF goes negative to flex; servo goes up to flex
+    invert: false           # URDF goes negative to flex; servo goes up to flex
     enabled: true
-    verified: none
+    verified: none   # re-based on zero 2026-07-28: slider zero is now the rest pose and positive is flex/out; re-check by eye
 
   - urdf_joint: r_wrist_roll_joint
     group: rightHand
@@ -281,16 +281,16 @@ joints:
     mrl_group: leftArm
     mrl_servo: omoplate
     service: i01.leftArm.omoplate
-    urdf_min_rad: 0.08726646259971647
-    urdf_max_rad: 1.0471975511965976
-    urdf_home_rad: 0.08726646259971647   # mirrored sign vs the right arm, per the URDF
+    urdf_min_rad: 0
+    urdf_max_rad: 0.95993108859688114
+    urdf_home_rad: 0 # mirrored sign vs the right arm, per the URDF
     servo_min: 60.0
     servo_max: 130.0
     servo_rest: 60.0
     mode: floored
-    invert: false          # left URDF travels POSITIVE away from home (mirror of right)
+    invert: true          # left URDF travels POSITIVE away from home (mirror of right)
     enabled: true
-    verified: none
+    verified: none   # re-based on zero 2026-07-28: slider zero is now the rest pose and positive is flex/out; re-check by eye
 
   - urdf_joint: l_upper_arm_roll_joint
     group: leftArm
@@ -313,16 +313,16 @@ joints:
     mrl_group: leftArm
     mrl_servo: bicep
     service: i01.leftArm.bicep
-    urdf_min_rad: -1.4835298641951802
-    urdf_max_rad: -0.2617993877991494
-    urdf_home_rad: -0.2617993877991494
+    urdf_min_rad: 0
+    urdf_max_rad: 1.2217304763960308
+    urdf_home_rad: 0
     servo_min: 15.0
     servo_max: 100.0
     servo_rest: 15.0
     mode: floored
-    invert: true
+    invert: false
     enabled: true
-    verified: none
+    verified: none   # re-based on zero 2026-07-28: slider zero is now the rest pose and positive is flex/out; re-check by eye
 
   - urdf_joint: l_wrist_roll_joint
     group: leftHand

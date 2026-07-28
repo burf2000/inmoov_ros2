@@ -192,19 +192,24 @@ TEST(JointMap, KnownJawNumbersAreFloored)
   EXPECT_NEAR(j->toServoDegrees(-5.0), 51.0, 1e-9);                   // below range clamps to rest
 }
 
-// The bicep is the awkward one: its URDF range never contains 0, its servo rest IS its
-// servo min, and it is inverted. If the mapping model is wrong anywhere it is wrong here.
+// The bicep is the awkward one: its servo rest IS its servo min, so all of its travel is on
+// one side of rest. If the mapping model is wrong anywhere it is wrong here.
+//
+// Re-based 2026-07-28: the range used to run entirely NEGATIVE with home at the top of it,
+// so from rest the slider could only travel one way and that way felt backwards. It is now
+// [0, span] with home 0 — slider zero is the straight arm, positive flexes it — and invert
+// flipped to keep the physical motion identical.
 TEST(JointMap, KnownRightElbowNumbers)
 {
   const auto m = shippedMap();
   const auto * j = m.find("r_elbow_flex_joint");
   ASSERT_NE(j, nullptr);
-  EXPECT_TRUE(j->invert);
+  EXPECT_FALSE(j->invert);
   EXPECT_NEAR(j->servo_rest, j->servo_min, 1e-9);
-  EXPECT_NEAR(j->toServoDegrees(-0.2617993877991494), 5.0, 1e-9);   // straight == rest
-  EXPECT_NEAR(j->toServoDegrees(-1.3962634015954636), 90.0, 1e-6);  // fully flexed == servo max
-  const double mid = (-0.2617993877991494 + -1.3962634015954636) / 2.0;
-  EXPECT_NEAR(j->toServoDegrees(mid), 47.5, 1e-6);
+  EXPECT_NEAR(j->urdf_home_rad, 0.0, 1e-9) << "slider zero must be the rest pose";
+  EXPECT_NEAR(j->toServoDegrees(0.0), 5.0, 1e-9);                   // straight == rest
+  EXPECT_NEAR(j->toServoDegrees(1.1344640137963142), 90.0, 1e-6);   // fully flexed == servo max
+  EXPECT_NEAR(j->toServoDegrees(1.1344640137963142 / 2.0), 47.5, 1e-6);
 }
 
 TEST(JointMap, SafetyCapIsHonoured)
