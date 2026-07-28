@@ -87,6 +87,12 @@ TEST(JointMap, EachJointReachesAServoExtreme)
       << j->urdf_joint << ": URDF limits map to [" << at_lo << ".." << at_hi
       << "] which never reaches servo [" << j->effectiveMin() << ".." << j->effectiveMax()
       << "] -- travel is being wasted";
+    // Reaching an extreme is not enough on its own. A floored joint pinned at rest sits
+    // exactly on servo_min, so it satisfies the check above while being completely dead --
+    // which is precisely how a broken shoulder_out shipped and moved no servo at all.
+    EXPECT_GT(std::abs(at_hi - at_lo), 1e-6)
+      << j->urdf_joint << ": both ends of the URDF range map to the same servo angle ("
+      << at_lo << ") -- this joint cannot move";
   }
 }
 
@@ -208,8 +214,11 @@ TEST(JointMap, KnownRightElbowNumbers)
   EXPECT_NEAR(j->servo_rest, j->servo_min, 1e-9);
   EXPECT_NEAR(j->urdf_home_rad, 0.0, 1e-9) << "slider zero must be the rest pose";
   EXPECT_NEAR(j->toServoDegrees(0.0), 5.0, 1e-9);                   // straight == rest
-  EXPECT_NEAR(j->toServoDegrees(1.1344640137963142), 90.0, 1e-6);   // fully flexed == servo max
-  EXPECT_NEAR(j->toServoDegrees(1.1344640137963142 / 2.0), 47.5, 1e-6);
+  // Span matched to the left elbow 2026-07-28: config.yaml had the right at 65 degrees and
+  // the left at 70, so at full slider the model showed one arm more bent than the other
+  // while MRL had them level.
+  EXPECT_NEAR(j->toServoDegrees(1.2217304763960306), 90.0, 1e-6);   // fully flexed == servo max
+  EXPECT_NEAR(j->toServoDegrees(1.2217304763960306 / 2.0), 47.5, 1e-6);
 }
 
 TEST(JointMap, SafetyCapIsHonoured)

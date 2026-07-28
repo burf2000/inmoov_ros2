@@ -207,7 +207,7 @@ joints:
     servo_max: 130.0
     servo_rest: 60.0
     mode: floored
-    invert: true           # URDF travels NEGATIVE away from home, servo travels UP
+    invert: false   # NOT inverted: home is the bottom of the range, all travel is positive
     enabled: true
     verified: none   # re-based on zero 2026-07-28: slider zero is now the rest pose and positive is flex/out; re-check by eye
 
@@ -233,7 +233,7 @@ joints:
     mrl_servo: bicep
     service: i01.rightArm.bicep
     urdf_min_rad: 0
-    urdf_max_rad: 1.1344640137963142
+    urdf_max_rad: 1.2217304763960306   # matched to the left elbow; the 65-vs-70 degree split was bad config data
     urdf_home_rad: 0 # straightest arm == bicep rest (5)
     servo_min: 5.0
     servo_max: 90.0
@@ -288,7 +288,7 @@ joints:
     servo_max: 130.0
     servo_rest: 60.0
     mode: floored
-    invert: true          # left URDF travels POSITIVE away from home (mirror of right)
+    invert: false   # NOT inverted: home is the bottom of the range, all travel is positive
     enabled: true
     verified: none   # re-based on zero 2026-07-28: slider zero is now the rest pose and positive is flex/out; re-check by eye
 
