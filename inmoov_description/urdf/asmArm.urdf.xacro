@@ -136,7 +136,7 @@
   </joint>
 
   <joint name="${side}_elbow_flex_joint" type="revolute">
-    <axis xyz="0 1 0"/>
+    <axis xyz="0 -1 0"/>
     <xacro:if value="${side == 'l'}">
       <limit effort="10000.0" lower="${l_elbow_flex_joint_lower}" upper="${l_elbow_flex_joint_upper}" velocity="${l_elbow_flex_joint_velocity}" />
     </xacro:if>
