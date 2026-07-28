@@ -123,7 +123,15 @@
   </joint>
 
   <joint name="${side}_upper_arm_roll_joint" type="revolute">
-    <axis xyz="0 0 1"/>
+    <!-- Side-dependent axis. The left bicep rotates the opposite way to the right for the
+         same joint value, so mirroring it here keeps RViz agreeing with the real robot AND
+         makes the pair move in mirror image for the same slider position. -->
+    <xacro:if value="${side == 'l'}">
+      <axis xyz="0 0 -1"/>
+    </xacro:if>
+    <xacro:if value="${side == 'r'}">
+      <axis xyz="0 0 1"/>
+    </xacro:if>
     <xacro:if value="${side == 'l'}">
       <limit effort="10000.0" lower="${l_upper_arm_roll_joint_lower}" upper="${l_upper_arm_roll_joint_upper}" velocity="${l_upper_arm_roll_joint_velocity}" />
     </xacro:if>
