@@ -12,8 +12,8 @@
   <xacro:property name="r_middle_joint_upper"            value="${r*c['joints']['r_middle_joint']['maxGoal']}" /> 
   <xacro:property name="r_middle_joint_velocity"         value="${r*c['joints']['r_middle_joint']['maxSpeed']}" /> 
  
-  <xacro:property name="r_shoulder_lift_joint_lower"     value="${r*c['joints']['r_shoulder_lift_joint']['maxGoal']}" /> 
-  <xacro:property name="r_shoulder_lift_joint_upper"     value="${r*c['joints']['r_shoulder_lift_joint']['minGoal']}" /> 
+  <xacro:property name="r_shoulder_lift_joint_lower"     value="${-r*c['joints']['r_shoulder_lift_joint']['minGoal']}" /> 
+  <xacro:property name="r_shoulder_lift_joint_upper"     value="${-r*c['joints']['r_shoulder_lift_joint']['maxGoal']}" /> 
   <xacro:property name="r_shoulder_lift_joint_velocity"  value="${r*c['joints']['r_shoulder_lift_joint']['maxSpeed']}" /> 
 
   <xacro:property name="l_ring_joint_lower"              value="${r*c['joints']['l_ring_joint']['minGoal']}" /> 
@@ -32,8 +32,8 @@
   <xacro:property name="waist_roll_joint_upper"          value="${r*c['joints']['waist_roll_joint']['minGoal']}" /> 
   <xacro:property name="waist_roll_joint_velocity"       value="${r*c['joints']['waist_roll_joint']['maxSpeed']}" /> 
 
-  <xacro:property name="r_wrist_roll_joint_lower"        value="${r*c['joints']['r_wrist_roll_joint']['maxGoal']}" /> 
-  <xacro:property name="r_wrist_roll_joint_upper"        value="${r*c['joints']['r_wrist_roll_joint']['minGoal']}" /> 
+  <xacro:property name="r_wrist_roll_joint_lower"        value="${r*(c['joints']['r_wrist_roll_joint']['maxGoal'] - c['joints']['r_wrist_roll_joint']['minGoal'])/2}" />
+  <xacro:property name="r_wrist_roll_joint_upper"        value="${-(r*(c['joints']['r_wrist_roll_joint']['maxGoal'] - c['joints']['r_wrist_roll_joint']['minGoal'])/2)}" />
   <xacro:property name="r_wrist_roll_joint_velocity"     value="${r*c['joints']['r_wrist_roll_joint']['maxSpeed']}" /> 
 
   <xacro:property name="l_middle_joint_lower"            value="${r*c['joints']['l_middle_joint']['minGoal']}" /> 
@@ -44,20 +44,20 @@
   <xacro:property name="l_thumb_joint_upper"             value="${r*c['joints']['l_thumb_joint']['maxGoal']}" /> 
   <xacro:property name="l_thumb_joint_velocity"          value="${r*c['joints']['l_thumb_joint']['maxSpeed']}" /> 
 
-  <xacro:property name="l_elbow_flex_joint_lower"        value="${r*c['joints']['l_elbow_flex_joint']['maxGoal']}" /> 
-  <xacro:property name="l_elbow_flex_joint_upper"        value="${r*c['joints']['l_elbow_flex_joint']['minGoal']}" /> 
+  <xacro:property name="l_elbow_flex_joint_lower"        value="0" /> 
+  <xacro:property name="l_elbow_flex_joint_upper"        value="${r*(c['joints']['l_elbow_flex_joint']['minGoal'] - c['joints']['l_elbow_flex_joint']['maxGoal'])}" /> 
   <xacro:property name="l_elbow_flex_joint_velocity"     value="${r*c['joints']['l_elbow_flex_joint']['maxSpeed']}" /> 
 
   <xacro:property name="jaw_joint_lower"                 value="${r*c['joints']['jaw_joint']['minGoal']}" /> 
   <xacro:property name="jaw_joint_upper"                 value="${r*c['joints']['jaw_joint']['maxGoal']}" /> 
   <xacro:property name="jaw_joint_velocity"              value="${r*c['joints']['jaw_joint']['maxSpeed']}" /> 
 
-  <xacro:property name="l_wrist_roll_joint_lower"        value="${r*c['joints']['l_wrist_roll_joint']['maxGoal']}" /> 
-  <xacro:property name="l_wrist_roll_joint_upper"        value="${r*c['joints']['l_wrist_roll_joint']['minGoal']}" /> 
+  <xacro:property name="l_wrist_roll_joint_lower"        value="${r*(c['joints']['l_wrist_roll_joint']['maxGoal'] - c['joints']['l_wrist_roll_joint']['minGoal'])/2}" />
+  <xacro:property name="l_wrist_roll_joint_upper"        value="${-(r*(c['joints']['l_wrist_roll_joint']['maxGoal'] - c['joints']['l_wrist_roll_joint']['minGoal'])/2)}" />
   <xacro:property name="l_wrist_roll_joint_velocity"     value="${r*c['joints']['l_wrist_roll_joint']['maxSpeed']}" /> 
 
-  <xacro:property name="r_elbow_flex_joint_lower"        value="${r*c['joints']['r_elbow_flex_joint']['maxGoal']}" /> 
-  <xacro:property name="r_elbow_flex_joint_upper"        value="${r*c['joints']['r_elbow_flex_joint']['minGoal']}" /> 
+  <xacro:property name="r_elbow_flex_joint_lower"        value="0" /> 
+  <xacro:property name="r_elbow_flex_joint_upper"        value="${r*(c['joints']['r_elbow_flex_joint']['minGoal'] - c['joints']['r_elbow_flex_joint']['maxGoal'])}" /> 
   <xacro:property name="r_elbow_flex_joint_velocity"     value="${r*c['joints']['r_elbow_flex_joint']['maxSpeed']}" /> 
 
   <xacro:property name="eyes_pan_joint_lower"            value="${r*c['joints']['eyes_pan_joint']['minGoal']}" /> 
@@ -68,8 +68,8 @@
   <xacro:property name="r_ring_joint_upper"              value="${r*c['joints']['r_ring_joint']['maxGoal']}" /> 
   <xacro:property name="r_ring_joint_velocity"           value="${r*c['joints']['r_ring_joint']['maxSpeed']}" /> 
 
-  <xacro:property name="l_shoulder_lift_joint_lower"     value="${r*c['joints']['l_shoulder_lift_joint']['maxGoal']}" /> 
-  <xacro:property name="l_shoulder_lift_joint_upper"     value="${r*c['joints']['l_shoulder_lift_joint']['minGoal']}" /> 
+  <xacro:property name="l_shoulder_lift_joint_lower"     value="${-r*c['joints']['l_shoulder_lift_joint']['minGoal']}" /> 
+  <xacro:property name="l_shoulder_lift_joint_upper"     value="${-r*c['joints']['l_shoulder_lift_joint']['maxGoal']}" /> 
   <xacro:property name="l_shoulder_lift_joint_velocity"  value="${r*c['joints']['l_shoulder_lift_joint']['maxSpeed']}" /> 
 
   <xacro:property name="eyes_tilt_joint_lower"           value="${r*c['joints']['eyes_tilt_joint']['maxGoal']}" /> 
@@ -92,8 +92,8 @@
   <xacro:property name="r_pinky_joint_upper"             value="${r*c['joints']['r_pinky_joint']['maxGoal']}" /> 
   <xacro:property name="r_pinky_joint_velocity"          value="${r*c['joints']['r_pinky_joint']['maxSpeed']}" /> 
 
-  <xacro:property name="l_shoulder_out_joint_lower"      value="${r*c['joints']['l_shoulder_out_joint']['minGoal']}" /> 
-  <xacro:property name="l_shoulder_out_joint_upper"      value="${r*c['joints']['l_shoulder_out_joint']['maxGoal']}" /> 
+  <xacro:property name="l_shoulder_out_joint_lower"      value="0" /> 
+  <xacro:property name="l_shoulder_out_joint_upper"      value="${r*(c['joints']['l_shoulder_out_joint']['maxGoal'] - c['joints']['l_shoulder_out_joint']['minGoal'])}" /> 
   <xacro:property name="l_shoulder_out_joint_velocity"   value="${r*c['joints']['l_shoulder_out_joint']['maxSpeed']}" /> 
 
   <xacro:property name="waist_pan_joint_lower"           value="${r*c['joints']['waist_pan_joint']['minGoal']}" /> 
@@ -116,8 +116,8 @@
   <xacro:property name="head_tilt_joint_upper"           value="${r*c['joints']['head_tilt_joint']['maxGoal']}" /> 
   <xacro:property name="head_tilt_joint_velocity"        value="${r*c['joints']['head_tilt_joint']['maxSpeed']}" /> 
 
-  <xacro:property name="r_shoulder_out_joint_lower"      value="${r*c['joints']['r_shoulder_out_joint']['maxGoal']}" /> 
-  <xacro:property name="r_shoulder_out_joint_upper"      value="${r*c['joints']['r_shoulder_out_joint']['minGoal']}" /> 
+  <xacro:property name="r_shoulder_out_joint_lower"      value="0" /> 
+  <xacro:property name="r_shoulder_out_joint_upper"      value="${r*(c['joints']['r_shoulder_out_joint']['minGoal'] - c['joints']['r_shoulder_out_joint']['maxGoal'])}" /> 
   <xacro:property name="r_shoulder_out_joint_velocity"   value="${r*c['joints']['r_shoulder_out_joint']['maxSpeed']}" /> 
 
 </robot>

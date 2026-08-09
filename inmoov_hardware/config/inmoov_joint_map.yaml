@@ -1,0 +1,573 @@
+# InMoov URDF joint  <->  MyRobotLab servo mapping
+# =================================================
+#
+# WHERE THE NUMBERS CAME FROM
+#   urdf_min_rad / urdf_max_rad : `xacro robots/inmoov.urdf.xacro` on skynet, 2026-07-28.
+#                                 These are the REAL URDF <limit lower/upper>, not guesses.
+#   servo_min / servo_max / servo_rest : read LIVE from MRL on pi5-inmoov (getMin/getMax/
+#                                 getRest) on 2026-07-28 while MRL was up with the i01
+#                                 InMoov service tree loaded. They are NOT the static
+#                                 values in servo_map.py -- the calibrated robot differs
+#                                 a lot left vs right (e.g. L shoulder rest 35 / R 62).
+#                                 The driver can re-read these at activation
+#                                 (`refresh_limits: true`); the values here are the
+#                                 fallback / offline-test defaults.
+#
+# THE MAPPING MODEL
+#   Every joint is anchored at `urdf_home_rad`, which maps EXACTLY onto `servo_rest`.
+#   From there travel is scaled independently on each side so that the URDF joint's
+#   usable range lands on the servo's real [servo_min, servo_max]:
+#
+#     d = (q - urdf_home_rad)          , negated if `invert: true`
+#     d >= 0 -> deg = rest + (d / pos_span_rad) * (servo_max - rest)
+#     d <  0 -> deg = rest + (d / neg_span_rad) * (rest - servo_min)
+#
+#   where (invert=false) pos_span_rad = urdf_max - home, neg_span_rad = home - urdf_min
+#         (invert=true ) pos_span_rad = home - urdf_min, neg_span_rad = urdf_max - home
+#
+#   `mode` is documentation + a sanity assertion, not a separate code path:
+#     centred : urdf_home_rad is INSIDE the URDF range and servo_rest is mid-travel.
+#               The joint swings both ways from rest (head pan, wrist roll, arm rotate).
+#     floored : urdf_home_rad sits AT one end of the URDF range and servo_rest is the
+#               neutral bottom of servo travel. Only one direction of travel exists
+#               (jaw, fingers, omoplate, bicep). Without this distinction a narrow
+#               servo range floors and barely moves -- same reason the Quest bridge
+#               splits CENTRED_SERVOS out from the rest.
+#
+#   Output is ALWAYS clamped to [servo_min, servo_max] and then to
+#   [safety_min, safety_max] if those are set. Nothing can leave that box.
+#
+# VERIFICATION HONESTY
+#   `verified: live`   - this joint has been commanded on the real robot and MRL was seen
+#                        to apply it. Read the per-joint note for exactly what was checked;
+#                        it does NOT automatically mean the direction was eyeballed.
+#   `verified: none`   - arithmetic checked offline only. Direction (`invert`) is a
+#                        geometric best-guess. Confirm by eye before trusting it.
+#   Nothing here is `verified: live` for direction unless the comment says who saw it.
+
+# Groups exist so bring-up can be staged the way the Quest bridge stages it.
+# The driver's `enabled_groups` parameter decides which are actually driven; a joint
+# whose group is not listed is left EXACTLY where it is and never even nudged to rest.
+groups: [head, eyes, rightArm, leftArm, rightHand, leftHand, torso]
+
+# Servos that exist in MRL but have NO URDF joint, so they are simply not driven:
+#   i01.head.eyelidLeft, i01.head.eyelidRight   (no eyelid joint in the URDF)
+#   i01.torso.topStom                           (URDF has waist pan + roll, no pitch)
+
+joints:
+
+  # ---------------------------------------------------------------- head ----
+  - urdf_joint: head_pan_joint
+    group: head
+    mrl_group: head
+    mrl_servo: rothead
+    service: i01.head.rothead
+    urdf_min_rad: -1.7453292519943295
+    urdf_max_rad:  1.5707963267948966
+    urdf_home_rad: 0.0
+    servo_min: 30.0
+    servo_max: 150.0
+    servo_rest: 90.0
+    mode: centred
+    invert: true
+    enabled: true
+    verified: live   # direction eyeballed by Simon 2026-07-28: drove the WRONG way with the previous invert, flipped and re-checked
+    # 2026-07-28, live on the real robot from skynet with inmoov-driver.service stopped:
+    # commanded 0 -> +0.20 rad -> 0 -> -0.20 rad -> 0 through the /joint_states relay,
+    # capped to +/-8 deg. MRL reported rothead 90 -> 97 -> 90 -> 83 -> 90 and it returned
+    # to rest on shutdown, so the whole skynet->MRL->servo path is proven.
+    # WHAT THIS DOES *NOT* PROVE: getPos echoes MRL's own target, and InMoov servos have no
+    # encoder, so this confirms MRL accepted and applied the command -- not that the head
+    # physically turned, and NOT that `invert: false` gives the correct LEFT/RIGHT sense.
+    # Somebody has to watch the robot to settle that. See README, "What is unverified".
+
+  - urdf_joint: head_tilt_joint
+    group: head
+    mrl_group: head
+    mrl_servo: neck
+    service: i01.head.neck
+    urdf_min_rad: -0.3490658503988659
+    urdf_max_rad:  0.3490658503988659
+    urdf_home_rad: 0.0
+    servo_min: 20.0
+    servo_max: 180.0
+    servo_rest: 115.0
+    mode: centred
+    invert: false
+    enabled: true
+    verified: none
+    # rest 115 is NOT mid-travel (95 deg below, 65 above), so the two sides have
+    # different gain by design. A +-20 deg URDF slider sweep drives the neck across
+    # its whole calibrated range -- that is a lot of movement on a heavy head.
+    safety_min: 70.0
+    safety_max: 150.0
+
+  - urdf_joint: head_roll_joint
+    group: head
+    mrl_group: head
+    mrl_servo: rollNeck
+    service: i01.head.rollNeck
+    urdf_min_rad: -0.2617993877991494
+    urdf_max_rad:  0.2617993877991494
+    urdf_home_rad: 0.0
+    servo_min: 50.0
+    servo_max: 130.0
+    servo_rest: 90.0
+    mode: centred
+    invert: true
+    enabled: true
+    verified: live   # direction eyeballed by Simon 2026-07-28: drove the WRONG way with the previous invert, flipped and re-checked
+
+  - urdf_joint: jaw_joint
+    group: head
+    mrl_group: head
+    mrl_servo: jaw
+    service: i01.head.jaw
+    urdf_min_rad: 0.0
+    urdf_max_rad: 0.08726646259971647
+    urdf_home_rad: 0.0
+    servo_min: 50.0
+    servo_max: 131.0
+    servo_rest: 51.0
+    mode: floored          # closed mouth == rest == servo 51
+    invert: false
+    enabled: true
+    verified: none
+
+  # ---------------------------------------------------------------- eyes ----
+  - urdf_joint: eyes_pan_joint
+    group: eyes
+    mrl_group: head
+    mrl_servo: eyeX
+    service: i01.head.eyeX
+    urdf_min_rad: -0.5235987755982988
+    urdf_max_rad:  0.5235987755982988
+    urdf_home_rad: 0.0
+    servo_min: 60.0
+    servo_max: 120.0
+    servo_rest: 90.0
+    mode: centred
+    invert: true
+    enabled: true
+    verified: live   # direction eyeballed by Simon 2026-07-28: drove the WRONG way with the previous invert, flipped and re-checked
+
+  - urdf_joint: eyes_tilt_joint
+    group: eyes
+    mrl_group: head
+    mrl_servo: eyeY
+    service: i01.head.eyeY
+    urdf_min_rad: -0.2617993877991494
+    urdf_max_rad:  0.2617993877991494
+    urdf_home_rad: 0.0
+    servo_min: 60.0
+    servo_max: 120.0
+    servo_rest: 90.0
+    mode: centred
+    invert: false
+    enabled: true
+    verified: none
+
+  # The URDF carries a SECOND eye pan joint for the left eyeball, but the robot has
+  # one eyeX servo driving both eyes off a common linkage. Parked, not an error.
+  - urdf_joint: l_eye_pan_joint
+    group: eyes
+    enabled: false
+    reason: no independent servo -- both eyes are driven by i01.head.eyeX
+
+  # ----------------------------------------------------------- right arm ----
+  - urdf_joint: r_shoulder_lift_joint
+    group: rightArm
+    mrl_group: rightArm
+    mrl_servo: shoulder
+    service: i01.rightArm.shoulder
+    urdf_min_rad: -0.78539816339744828
+    urdf_max_rad: 2.3561944901923448
+    urdf_home_rad: -0
+    servo_min: 50.0
+    servo_max: 120.0
+    servo_rest: 62.0
+    # centred, not floored: URDF home 0 (arm hanging down) is strictly inside the range,
+    # and the servo does have a little travel BELOW rest (62 -> 50). It is just very
+    # lopsided -- 58 deg of raise against 12 deg the other way. The per-side scaling
+    # handles that; labelling it floored would be a lie the loader now rejects.
+    mode: centred
+    invert: false           # GUESS: negative URDF lift == raise. NOT confirmed by eye.
+    enabled: true
+    verified: none   # sign convention negated 2026-07-28 so a positive slider moves the arm FORWARD; re-check by eye
+
+  - urdf_joint: r_shoulder_out_joint
+    group: rightArm
+    mrl_group: rightArm
+    mrl_servo: omoplate
+    service: i01.rightArm.omoplate
+    urdf_min_rad: 0
+    urdf_max_rad: 0.95993108859688114
+    urdf_home_rad: 0 # arm closest to the body == servo rest (60)
+    servo_min: 60.0
+    servo_max: 130.0
+    servo_rest: 60.0
+    mode: floored
+    invert: false   # NOT inverted: home is the bottom of the range, all travel is positive
+    enabled: true
+    verified: none   # re-based on zero 2026-07-28: slider zero is now the rest pose and positive is flex/out; re-check by eye
+
+  - urdf_joint: r_upper_arm_roll_joint
+    group: rightArm
+    mrl_group: rightArm
+    mrl_servo: rotate
+    service: i01.rightArm.rotate
+    urdf_min_rad: -1.5707963267948966
+    urdf_max_rad:  1.5707963267948966
+    urdf_home_rad: 0.0
+    servo_min: 65.0
+    servo_max: 130.0
+    servo_rest: 95.0
+    mode: centred          # bidirectional twist, rest is mid-travel
+    invert: true
+    enabled: true
+    verified: live   # direction eyeballed by Simon 2026-07-28: drove the WRONG way with the previous invert, flipped and re-checked
+
+  - urdf_joint: r_elbow_flex_joint
+    group: rightArm
+    mrl_group: rightArm
+    mrl_servo: bicep
+    service: i01.rightArm.bicep
+    urdf_min_rad: 0
+    urdf_max_rad: 1.2217304763960306   # matched to the left elbow; the 65-vs-70 degree split was bad config data
+    urdf_home_rad: 0 # straightest arm == bicep rest (5)
+    servo_min: 5.0
+    servo_max: 90.0
+    servo_rest: 5.0
+    mode: floored
+    invert: false           # URDF goes negative to flex; servo goes up to flex
+    enabled: true
+    verified: none   # re-based on zero 2026-07-28: slider zero is now the rest pose and positive is flex/out; re-check by eye
+
+  - urdf_joint: r_wrist_roll_joint
+    group: rightHand
+    mrl_group: rightHand
+    mrl_servo: wrist
+    service: i01.rightHand.wrist
+    urdf_min_rad: -1.5707963267948966
+    urdf_max_rad: 1.5707963267948966
+    urdf_home_rad: 0 # URDF MIDPOINT, because servo rest 90 is mid-travel
+    servo_min: 0.0
+    servo_max: 180.0
+    servo_rest: 90.0
+    mode: centred
+    invert: false
+    enabled: true
+    verified: none   # re-centred on zero 2026-07-28 so the slider's middle is the wrist's rest position
+
+  # ------------------------------------------------------------ left arm ----
+  - urdf_joint: l_shoulder_lift_joint
+    group: leftArm
+    mrl_group: leftArm
+    mrl_servo: shoulder
+    service: i01.leftArm.shoulder
+    urdf_min_rad: -0.78539816339744828
+    urdf_max_rad: 2.3561944901923448
+    urdf_home_rad: -0
+    servo_min: 30.0
+    servo_max: 90.0
+    servo_rest: 35.0       # note: only 5 deg of travel BELOW rest on this arm
+    mode: centred          # same reasoning as the right shoulder above
+    invert: false
+    enabled: true
+    verified: none   # sign convention negated 2026-07-28 so a positive slider moves the arm FORWARD; re-check by eye
+
+  - urdf_joint: l_shoulder_out_joint
+    group: leftArm
+    mrl_group: leftArm
+    mrl_servo: omoplate
+    service: i01.leftArm.omoplate
+    urdf_min_rad: 0
+    urdf_max_rad: 0.95993108859688114
+    urdf_home_rad: 0 # mirrored sign vs the right arm, per the URDF
+    servo_min: 60.0
+    servo_max: 130.0
+    servo_rest: 60.0
+    mode: floored
+    invert: false   # NOT inverted: home is the bottom of the range, all travel is positive
+    enabled: true
+    verified: none   # re-based on zero 2026-07-28: slider zero is now the rest pose and positive is flex/out; re-check by eye
+
+  - urdf_joint: l_upper_arm_roll_joint
+    group: leftArm
+    mrl_group: leftArm
+    mrl_servo: rotate
+    service: i01.leftArm.rotate
+    urdf_min_rad: -1.5707963267948966
+    urdf_max_rad:  1.5707963267948966
+    urdf_home_rad: 0.0
+    servo_min: 60.0
+    servo_max: 125.0
+    servo_rest: 90.0
+    mode: centred
+    invert: true
+    enabled: true
+    verified: live   # direction eyeballed by Simon 2026-07-28: drove the WRONG way with the previous invert, flipped and re-checked
+
+  - urdf_joint: l_elbow_flex_joint
+    group: leftArm
+    mrl_group: leftArm
+    mrl_servo: bicep
+    service: i01.leftArm.bicep
+    urdf_min_rad: 0
+    urdf_max_rad: 1.2217304763960308
+    urdf_home_rad: 0
+    servo_min: 15.0
+    servo_max: 100.0
+    servo_rest: 15.0
+    mode: floored
+    invert: false
+    enabled: true
+    verified: none   # re-based on zero 2026-07-28: slider zero is now the rest pose and positive is flex/out; re-check by eye
+
+  - urdf_joint: l_wrist_roll_joint
+    group: leftHand
+    mrl_group: leftHand
+    mrl_servo: wrist
+    service: i01.leftHand.wrist
+    urdf_min_rad: -1.5707963267948966
+    urdf_max_rad: 1.5707963267948966
+    urdf_home_rad: 0 # URDF midpoint -> servo rest 90
+    servo_min: 0.0
+    servo_max: 180.0
+    servo_rest: 90.0
+    mode: centred
+    invert: true
+    enabled: true
+    verified: none   # re-centred on zero 2026-07-28 so the slider's middle is the wrist's rest position
+
+  # ---------------------------------------------------------- right hand ----
+  # Fingers: servo 0 == open == rest, 180 == fully curled. URDF home 0 maps to rest;
+  # the tiny hyper-extended tail below 0 rad clamps to the servo minimum, which is
+  # what you want anyway (it is only -5 deg of slack).
+  - urdf_joint: r_thumb_joint
+    group: rightHand
+    mrl_group: rightHand
+    mrl_servo: thumb
+    service: i01.rightHand.thumb
+    urdf_min_rad: -0.08726646259971647
+    urdf_max_rad: 1.1344640137963142
+    urdf_home_rad: 0.0
+    servo_min: 0.0
+    servo_max: 180.0
+    servo_rest: 0.0
+    mode: floored
+    invert: false
+    enabled: true
+    verified: none
+
+  - urdf_joint: r_index_joint
+    group: rightHand
+    mrl_group: rightHand
+    mrl_servo: index
+    service: i01.rightHand.index
+    urdf_min_rad: -0.08726646259971647
+    urdf_max_rad: 1.4835298641951802
+    urdf_home_rad: 0.0
+    servo_min: 0.0
+    servo_max: 180.0
+    servo_rest: 0.0
+    mode: floored
+    invert: false
+    enabled: true
+    verified: none
+
+  - urdf_joint: r_middle_joint
+    group: rightHand
+    mrl_group: rightHand
+    mrl_servo: majeure
+    service: i01.rightHand.majeure
+    urdf_min_rad: -0.08726646259971647
+    urdf_max_rad: 1.4835298641951802
+    urdf_home_rad: 0.0
+    servo_min: 0.0
+    servo_max: 180.0
+    servo_rest: 0.0
+    mode: floored
+    invert: false
+    enabled: true
+    verified: none
+
+  - urdf_joint: r_ring_joint
+    group: rightHand
+    mrl_group: rightHand
+    mrl_servo: ringFinger
+    service: i01.rightHand.ringFinger
+    urdf_min_rad: -0.08726646259971647
+    urdf_max_rad: 1.4835298641951802
+    urdf_home_rad: 0.0
+    servo_min: 0.0
+    servo_max: 180.0
+    servo_rest: 0.0
+    mode: floored
+    invert: false
+    enabled: true
+    verified: none
+
+  - urdf_joint: r_pinky_joint
+    group: rightHand
+    mrl_group: rightHand
+    mrl_servo: pinky
+    service: i01.rightHand.pinky
+    urdf_min_rad: -0.08726646259971647
+    urdf_max_rad: 1.4835298641951802
+    urdf_home_rad: 0.0
+    servo_min: 0.0
+    servo_max: 180.0
+    servo_rest: 0.0
+    mode: floored
+    invert: false
+    enabled: true
+    verified: none
+
+  # ----------------------------------------------------------- left hand ----
+  - urdf_joint: l_thumb_joint
+    group: leftHand
+    mrl_group: leftHand
+    mrl_servo: thumb
+    service: i01.leftHand.thumb
+    urdf_min_rad: -0.08726646259971647
+    urdf_max_rad: 1.1344640137963142
+    urdf_home_rad: 0.0
+    servo_min: 0.0
+    servo_max: 180.0
+    servo_rest: 0.0
+    mode: floored
+    invert: false
+    enabled: true
+    verified: none
+
+  - urdf_joint: l_index_joint
+    group: leftHand
+    mrl_group: leftHand
+    mrl_servo: index
+    service: i01.leftHand.index
+    urdf_min_rad: -0.08726646259971647
+    urdf_max_rad: 1.4835298641951802
+    urdf_home_rad: 0.0
+    servo_min: 0.0
+    servo_max: 180.0
+    servo_rest: 0.0
+    mode: floored
+    invert: false
+    enabled: true
+    verified: none
+
+  - urdf_joint: l_middle_joint
+    group: leftHand
+    mrl_group: leftHand
+    mrl_servo: majeure
+    service: i01.leftHand.majeure
+    urdf_min_rad: -0.08726646259971647
+    urdf_max_rad: 1.4835298641951802
+    urdf_home_rad: 0.0
+    servo_min: 0.0
+    servo_max: 180.0
+    servo_rest: 0.0
+    mode: floored
+    invert: false
+    enabled: true
+    verified: none
+
+  - urdf_joint: l_ring_joint
+    group: leftHand
+    mrl_group: leftHand
+    mrl_servo: ringFinger
+    service: i01.leftHand.ringFinger
+    urdf_min_rad: -0.08726646259971647
+    urdf_max_rad: 1.4835298641951802
+    urdf_home_rad: 0.0
+    servo_min: 0.0
+    servo_max: 180.0
+    servo_rest: 0.0
+    mode: floored
+    invert: false
+    enabled: true
+    verified: none
+
+  - urdf_joint: l_pinky_joint
+    group: leftHand
+    mrl_group: leftHand
+    mrl_servo: pinky
+    service: i01.leftHand.pinky
+    urdf_min_rad: -0.08726646259971647
+    urdf_max_rad: 1.4835298641951802
+    urdf_home_rad: 0.0
+    servo_min: 0.0
+    servo_max: 180.0
+    servo_rest: 0.0
+    mode: floored
+    invert: false
+    enabled: true
+    verified: none
+
+  # --------------------------------------------------------------- torso ----
+  # HIGH RISK and the servo-role assignment below is an ASSUMPTION about InMoov
+  # convention (lowStom = waist rotation, midStom = side lean). Nobody has confirmed
+  # it on this robot. `torso` is deliberately NOT in the default enabled_groups.
+  - urdf_joint: waist_pan_joint
+    group: torso
+    mrl_group: torso
+    mrl_servo: lowStom
+    service: i01.torso.lowStom
+    urdf_min_rad: -1.5707963267948966
+    urdf_max_rad:  1.5707963267948966
+    urdf_home_rad: 0.0
+    servo_min: 0.0
+    servo_max: 180.0
+    servo_rest: 90.0
+    mode: centred
+    invert: true
+    enabled: true
+    verified: live   # direction eyeballed by Simon 2026-07-28: drove the WRONG way with the previous invert, flipped and re-checked
+    safety_min: 60.0
+    safety_max: 120.0
+
+  - urdf_joint: waist_roll_joint
+    group: torso
+    mrl_group: torso
+    mrl_servo: midStom
+    service: i01.torso.midStom
+    urdf_min_rad: -0.2617993877991494
+    urdf_max_rad:  0.2617993877991494
+    urdf_home_rad: 0.0
+    servo_min: 60.0
+    servo_max: 120.0
+    servo_rest: 90.0
+    mode: centred
+    invert: true
+    enabled: true
+    verified: live   # direction eyeballed by Simon 2026-07-28: drove the WRONG way with the previous invert, flipped and re-checked
+
+  # --------------------------------------------- parked: no servo exists ----
+  # The URDF models each finger as 3-4 chained revolute joints, but the real hand has
+  # ONE servo per finger pulling the whole tendon. The "_joint" entry above is the one
+  # that is driven (it is also the one controllers.yaml lists); the rest are geometry.
+  - { urdf_joint: r_thumb1_joint,  group: rightHand, enabled: false, reason: one tendon servo per finger }
+  - { urdf_joint: r_thumb3_joint,  group: rightHand, enabled: false, reason: one tendon servo per finger }
+  - { urdf_joint: r_index1_joint,  group: rightHand, enabled: false, reason: one tendon servo per finger }
+  - { urdf_joint: r_index3_joint,  group: rightHand, enabled: false, reason: one tendon servo per finger }
+  - { urdf_joint: r_middle1_joint, group: rightHand, enabled: false, reason: one tendon servo per finger }
+  - { urdf_joint: r_middle3_joint, group: rightHand, enabled: false, reason: one tendon servo per finger }
+  - { urdf_joint: r_ring1_joint,   group: rightHand, enabled: false, reason: one tendon servo per finger }
+  - { urdf_joint: r_ring3_joint,   group: rightHand, enabled: false, reason: one tendon servo per finger }
+  - { urdf_joint: r_ring4_joint,   group: rightHand, enabled: false, reason: one tendon servo per finger }
+  - { urdf_joint: r_pinky1_joint,  group: rightHand, enabled: false, reason: one tendon servo per finger }
+  - { urdf_joint: r_pinky3_joint,  group: rightHand, enabled: false, reason: one tendon servo per finger }
+  - { urdf_joint: r_pinky4_joint,  group: rightHand, enabled: false, reason: one tendon servo per finger }
+  - { urdf_joint: l_thumb1_joint,  group: leftHand,  enabled: false, reason: one tendon servo per finger }
+  - { urdf_joint: l_thumb3_joint,  group: leftHand,  enabled: false, reason: one tendon servo per finger }
+  - { urdf_joint: l_index1_joint,  group: leftHand,  enabled: false, reason: one tendon servo per finger }
+  - { urdf_joint: l_index3_joint,  group: leftHand,  enabled: false, reason: one tendon servo per finger }
+  - { urdf_joint: l_middle1_joint, group: leftHand,  enabled: false, reason: one tendon servo per finger }
+  - { urdf_joint: l_middle3_joint, group: leftHand,  enabled: false, reason: one tendon servo per finger }
+  - { urdf_joint: l_ring1_joint,   group: leftHand,  enabled: false, reason: one tendon servo per finger }
+  - { urdf_joint: l_ring3_joint,   group: leftHand,  enabled: false, reason: one tendon servo per finger }
+  - { urdf_joint: l_ring4_joint,   group: leftHand,  enabled: false, reason: one tendon servo per finger }
+  - { urdf_joint: l_pinky1_joint,  group: leftHand,  enabled: false, reason: one tendon servo per finger }
+  - { urdf_joint: l_pinky3_joint,  group: leftHand,  enabled: false, reason: one tendon servo per finger }
+  - { urdf_joint: l_pinky4_joint,  group: leftHand,  enabled: false, reason: one tendon servo per finger }
